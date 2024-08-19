@@ -1,0 +1,476 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FB057916-F540-442A-90D3-F7972746468D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Retaining_Car_Project</RootNamespace>
+    <AssemblyName>Retaining Car Project</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ctrTest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrTest.Designer.cs">
+      <DependentUpon>ctrTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Drivers\AddUpdateDriver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drivers\AddUpdateDriver.Designer.cs">
+      <DependentUpon>AddUpdateDriver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Drivers\ctrAddUpdateCustomer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Drivers\ctrAddUpdateCustomer.Designer.cs">
+      <DependentUpon>ctrAddUpdateCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Drivers\ctrDriverInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Drivers\ctrDriverInfo.Designer.cs">
+      <DependentUpon>ctrDriverInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Drivers\ctrDriverInfoWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Drivers\ctrDriverInfoWithFilter.Designer.cs">
+      <DependentUpon>ctrDriverInfoWithFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Drivers\DriverInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drivers\DriverInfo.Designer.cs">
+      <DependentUpon>DriverInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Drivers\DriversList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drivers\DriversList.Designer.cs">
+      <DependentUpon>DriversList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Drivers\FindDriver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drivers\FindDriver.Designer.cs">
+      <DependentUpon>FindDriver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\EmployeeInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees\EmployeeInfo.Designer.cs">
+      <DependentUpon>EmployeeInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\AddUpdateEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees\AddUpdateEmployee.Designer.cs">
+      <DependentUpon>AddUpdateEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\ctrAddUpdateEmployee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employees\ctrAddUpdateEmployee.Designer.cs">
+      <DependentUpon>ctrAddUpdateEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\ctrEmployeeInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employees\ctrEmployeeInfo.Designer.cs">
+      <DependentUpon>ctrEmployeeInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\ctrEmployeeInfoWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employees\ctrEmployeeInfoWithFilter.Designer.cs">
+      <DependentUpon>ctrEmployeeInfoWithFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\DeleteEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees\DeleteEmployee.Designer.cs">
+      <DependentUpon>DeleteEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\EmployeeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees\EmployeeList.Designer.cs">
+      <DependentUpon>EmployeeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\EnterEmployeeID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees\EnterEmployeeID.Designer.cs">
+      <DependentUpon>EnterEmployeeID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\FindEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees\FindEmployee.Designer.cs">
+      <DependentUpon>FindEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginSystem\clsLogedInUser.cs" />
+    <Compile Include="LoginSystem\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginSystem\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginSystem\LoginRegistry.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemCustomer\ctrCustomerInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SystemCustomer\ctrCustomerInfo.Designer.cs">
+      <DependentUpon>ctrCustomerInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemCustomer\ctrCustomerInfowithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SystemCustomer\ctrCustomerInfowithFilter.Designer.cs">
+      <DependentUpon>ctrCustomerInfowithFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemCustomer\ctrUpdateAddCustomer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SystemCustomer\ctrUpdateAddCustomer.Designer.cs">
+      <DependentUpon>ctrUpdateAddCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemCustomer\CustomerInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemCustomer\CustomerInfo.Designer.cs">
+      <DependentUpon>CustomerInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemCustomer\DeleteCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemCustomer\DeleteCustomer.Designer.cs">
+      <DependentUpon>DeleteCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemCustomer\EnterCustomerID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemCustomer\EnterCustomerID.Designer.cs">
+      <DependentUpon>EnterCustomerID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemCustomer\FindCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemCustomer\FindCustomer.Designer.cs">
+      <DependentUpon>FindCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemCustomer\ListOfCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemCustomer\ListOfCustomers.Designer.cs">
+      <DependentUpon>ListOfCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemCustomer\UpdateAddCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemCustomer\UpdateAddCustomers.Designer.cs">
+      <DependentUpon>UpdateAddCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForm2.Designer.cs">
+      <DependentUpon>TestForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\AddNewUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\AddNewUser.Designer.cs">
+      <DependentUpon>AddNewUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\ctrAddNewUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Users\ctrAddNewUser.Designer.cs">
+      <DependentUpon>ctrAddNewUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\ctrUpdateUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Users\ctrUpdateUser.Designer.cs">
+      <DependentUpon>ctrUpdateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\ctrUserInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Users\ctrUserInfo.Designer.cs">
+      <DependentUpon>ctrUserInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\ctrUserInfoWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Users\ctrUserInfoWithFilter.Designer.cs">
+      <DependentUpon>ctrUserInfoWithFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\DeleteUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\DeleteUser.Designer.cs">
+      <DependentUpon>DeleteUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\EnterUserID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\EnterUserID.Designer.cs">
+      <DependentUpon>EnterUserID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\FindUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\FindUser.Designer.cs">
+      <DependentUpon>FindUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\UpdateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\UpdateUser.Designer.cs">
+      <DependentUpon>UpdateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\UserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\UserInfo.Designer.cs">
+      <DependentUpon>UserInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\UsersList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\UsersList.Designer.cs">
+      <DependentUpon>UsersList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vehciles\ListOfVehciles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vehciles\ListOfVehciles.Designer.cs">
+      <DependentUpon>ListOfVehciles.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ctrTest.resx">
+      <DependentUpon>ctrTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drivers\AddUpdateDriver.resx">
+      <DependentUpon>AddUpdateDriver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drivers\ctrAddUpdateCustomer.resx">
+      <DependentUpon>ctrAddUpdateCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drivers\ctrDriverInfo.resx">
+      <DependentUpon>ctrDriverInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drivers\ctrDriverInfoWithFilter.resx">
+      <DependentUpon>ctrDriverInfoWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drivers\DriverInfo.resx">
+      <DependentUpon>DriverInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drivers\DriversList.resx">
+      <DependentUpon>DriversList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drivers\FindDriver.resx">
+      <DependentUpon>FindDriver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\EmployeeInfo.resx">
+      <DependentUpon>EmployeeInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\AddUpdateEmployee.resx">
+      <DependentUpon>AddUpdateEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\ctrAddUpdateEmployee.resx">
+      <DependentUpon>ctrAddUpdateEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\ctrEmployeeInfo.resx">
+      <DependentUpon>ctrEmployeeInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\ctrEmployeeInfoWithFilter.resx">
+      <DependentUpon>ctrEmployeeInfoWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\DeleteEmployee.resx">
+      <DependentUpon>DeleteEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\EmployeeList.resx">
+      <DependentUpon>EmployeeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\EnterEmployeeID.resx">
+      <DependentUpon>EnterEmployeeID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\FindEmployee.resx">
+      <DependentUpon>FindEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginSystem\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SystemCustomer\ctrCustomerInfo.resx">
+      <DependentUpon>ctrCustomerInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemCustomer\ctrCustomerInfowithFilter.resx">
+      <DependentUpon>ctrCustomerInfowithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemCustomer\ctrUpdateAddCustomer.resx">
+      <DependentUpon>ctrUpdateAddCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemCustomer\CustomerInfo.resx">
+      <DependentUpon>CustomerInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemCustomer\DeleteCustomer.resx">
+      <DependentUpon>DeleteCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemCustomer\EnterCustomerID.resx">
+      <DependentUpon>EnterCustomerID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemCustomer\FindCustomer.resx">
+      <DependentUpon>FindCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemCustomer\ListOfCustomers.resx">
+      <DependentUpon>ListOfCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemCustomer\UpdateAddCustomers.resx">
+      <DependentUpon>UpdateAddCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestForm2.resx">
+      <DependentUpon>TestForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\AddNewUser.resx">
+      <DependentUpon>AddNewUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\ctrAddNewUser.resx">
+      <DependentUpon>ctrAddNewUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\ctrUpdateUser.resx">
+      <DependentUpon>ctrUpdateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\ctrUserInfo.resx">
+      <DependentUpon>ctrUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\ctrUserInfoWithFilter.resx">
+      <DependentUpon>ctrUserInfoWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\DeleteUser.resx">
+      <DependentUpon>DeleteUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\EnterUserID.resx">
+      <DependentUpon>EnterUserID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\FindUser.resx">
+      <DependentUpon>FindUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\UpdateUser.resx">
+      <DependentUpon>UpdateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\UserInfo.resx">
+      <DependentUpon>UserInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\UsersList.resx">
+      <DependentUpon>UsersList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vehciles\ListOfVehciles.resx">
+      <DependentUpon>ListOfVehciles.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\clsBuesnesLayer\clsBuesnesLayer.csproj">
+      <Project>{64fcb12a-04b7-48bb-a559-6e6b2118372b}</Project>
+      <Name>clsBuesnesLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecurityLayer\SecurityLayer.csproj">
+      <Project>{198dbc69-b105-4f65-aff4-076ded74387a}</Project>
+      <Name>SecurityLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\add %281%29.png" />
+    <None Include="Resources\add %281%291.png" />
+    <Content Include="Resources\boy.png" />
+    <Content Include="Resources\business.png" />
+    <None Include="Resources\business1.png" />
+    <Content Include="Resources\invisible.png" />
+    <Content Include="Resources\student.png" />
+    <Content Include="Resources\view.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
