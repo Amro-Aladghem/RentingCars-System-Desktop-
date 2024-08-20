@@ -155,6 +155,59 @@ namespace clsDataAccessLayer
 
         }
 
+        public static bool GetFullRecorrdByTwoName(string CarTypeName,string ModelName, ref int VehicleID, ref int CarTypeID, ref int CarModelID, ref string ProducedYear, ref decimal CurrentMillage, ref int ColorID, ref string isHasDamaged, ref int RentStatus, ref DateTime LastRentDate, ref string CarNumber)
+        {
+            bool isFound = false;
+
+            try
+            {
+
+                using(SqlConnection connection=new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+
+                    connection.Open();
+                    using(SqlCommand command=new SqlCommand("SP_GetFullVehiclRecWithTwoNam",connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@CarTypeName", CarTypeName);
+                        command.Parameters.AddWithValue("@ModelName", ModelName);
+
+                        using(SqlDataReader reader=command.ExecuteReader())
+                        {
+                            if(reader.Read())
+                            {
+                                isFound = true;
+                                VehicleID = (int)reader[0];
+                                CarTypeID = (int)reader[1];
+                                CarModelID = (int)reader[2];
+                                ProducedYear = (string)reader[3];
+                                CurrentMillage = (decimal)reader[4];
+                                ColorID = (int)reader[5];
+                                isHasDamaged = (string)reader[6];
+                                RentStatus = (int)reader[7];
+                                LastRentDate = (DateTime)reader[8];
+                                CarNumber = (string)reader[9];
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+            catch
+            {
+                //
+            }
+
+            return isFound;
+
+
+        }
+
+
         public static int AddNewRecord(int CarTypeID, int CarModelID, string ProducedYear, decimal CurrentMillage, int ColorID, string isHasDamaged, int RentStatus, DateTime LastRentDate, string CarNumber)
         {
             int NewID = -1;
@@ -311,7 +364,7 @@ namespace clsDataAccessLayer
 
         }
 
-        public static int AddNewCarModel(string NewModelName,int CarTypeID)
+        public static int AddNewCarModel(string NewModelName,string CarTypeName)
         {
             int NewID = -1;
 
@@ -321,11 +374,11 @@ namespace clsDataAccessLayer
                 using (SqlConnection connection=new SqlConnection(clsDataAccessSettings.ConnectionString))
                 {
                     connection.Open();
-                    string query = "Insert Into CarsModels (CarTypeID,ModelName)\r\nvalues\r\n(@CarTypeID,@ModelName);select SCOPE_IDENTITY()";
+                    string query = "Insert INto CarsModels (CarTypeID,ModelName)\r\nvalues\r\n(\r\n  dbo.GetTypeIDByCarName(@CarName),@ModelName'\r\n) ;select SCOPE_IDENTITY()";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@CarTypeID", CarTypeID);
+                        command.Parameters.AddWithValue("@CarName",CarTypeName);
                         command.Parameters.AddWithValue("@ModelName", NewModelName);
 
                         object reader = command.ExecuteScalar();
@@ -677,7 +730,137 @@ namespace clsDataAccessLayer
             return dt;
         }
 
+        public static int GetCarIDByName(string CarName)
+        {
+            int ID = -1;
 
+
+            try
+            {
+                using(SqlConnection connection=new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+                    string query = "select  CarTypeID from CarsTypes where CarName=@CarName";
+
+                    using(SqlCommand command=new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@CarName", CarName);
+
+                        object reader = command.ExecuteScalar();
+                        if(reader!=null && int.TryParse(reader.ToString(),out int value))
+                        {
+                            ID= value;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                //
+            }
+
+            return ID;
+        }
+
+        public static int GetCarModelIDByName(string CarModelName)
+        {
+            int ID = -1;
+
+            try
+            {
+                using(SqlConnection connection=new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+                    string query = "select CarsModels.CarModelID from CarsModels where ModelName=@ModelName";
+
+                    using(SqlCommand command=new SqlCommand(query,connection))
+                    {
+                        command.Parameters.AddWithValue("@ModelName", CarModelName);
+
+                        object reader = command.ExecuteScalar();
+                        if(reader!=null && int.TryParse(reader.ToString(), out int value))
+                        {
+                            ID = value;
+                        }
+
+                    }
+                }
+            }
+            catch
+            {
+                //
+            }
+
+            return ID;  
+        }
+
+        public static string GetColorNameByID(int ColorID)
+        {
+            string Name = "";
+
+            try
+            {
+
+                using(SqlConnection connection=new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+
+                    connection.Open();
+                    string query = "select ColorType.ColorName from ColorType where ColorId=@ColorID";
+
+                    using(SqlCommand command =new SqlCommand(query,connection))
+                    {
+                        command.Parameters.AddWithValue("@ColorID", ColorID);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if(reader.Read())
+                            {
+                                Name = (string)reader[0];
+                            }
+
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                //
+            }
+
+            return Name;
+        }
+
+        public static int GetColorID(string ColorName)
+        {
+            int ID = -1;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+                    string query = "select ColorId from ColorType where ColorName=@ColorName";
+
+                    using(SqlCommand command =new SqlCommand(query,connection))
+                    {
+                        command.Parameters.AddWithValue("@ColorName", ColorName);
+
+                        object reader = command.ExecuteScalar();
+                        if(reader!=null&& int.TryParse(reader.ToString(),out int value))
+                        {
+                            ID = value;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                //
+            }
+
+            return ID;
+        }
+      
 
 
 

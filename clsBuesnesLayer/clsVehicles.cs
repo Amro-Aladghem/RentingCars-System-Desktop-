@@ -24,8 +24,12 @@ namespace clsBuesnesLayer
         public int ColorID { get; set; }
         public string IsHasDamaged { get; set; }
         public int RentStatusID { get; set; }
-        public DateTime LastDateForRent { get; set; }
+        public DateTime? LastDateForRent { get; set; }
         public string CarNumber { get; set; }
+
+        public static int CarType_ID { get; set; }    //these fields used when I dont have an object of vehicle ,Ex.FindByTypeAndModelName 
+        public static int CarModel_ID { get; set; }
+
 
         public clsVehicles()
         {
@@ -37,7 +41,7 @@ namespace clsBuesnesLayer
             this.ColorID = -1;
             this.IsHasDamaged = string.Empty;
             this.RentStatusID = -1;
-            this.LastDateForRent = DateTime.MinValue;
+            this.LastDateForRent = null;
             this.CarNumber = string.Empty;
 
             Mode = eMode.AddNew;
@@ -91,15 +95,35 @@ namespace clsBuesnesLayer
             }
         }
 
+        public static clsVehicles FindVehicleByCarTypeAndModelName(string CarTypeName,string CarModelName)
+        {
+            int CarTypeID = -1, CarModelID = -1, RentStatusID = -1, ColorID = -1;
+            string ProducedYear = "", IsHasDamaged = "", CarNumber = "";
+            decimal CurrentMillageCounter = 0; DateTime LastDateForRent = DateTime.MinValue; int VehicleID = -1;
+
+            if(clsVehiclesData.GetFullRecorrdByTwoName(CarTypeName,CarModelName, ref VehicleID, ref CarTypeID, ref CarModelID, ref ProducedYear, ref CurrentMillageCounter, ref ColorID, ref IsHasDamaged, ref RentStatusID, ref LastDateForRent, ref CarNumber))
+            {
+                CarType_ID = CarTypeID;
+                CarModel_ID=CarModelID;
+                return new clsVehicles(VehicleID, CarTypeID, CarModelID, ProducedYear, CurrentMillageCounter, ColorID, IsHasDamaged, RentStatusID, LastDateForRent, CarNumber);
+
+            }
+            else
+            {
+                return null; 
+            }
+
+        }
+
         private bool _AddNewVehicle()
         {
-            this.VehicleID = clsVehiclesData.AddNewRecord(this.CarTypeID, this.CarModelID, this.ProducedYear, this.CurrentMillageCounter, this.ColorID, this.IsHasDamaged, this.RentStatusID, this.LastDateForRent, this.CarNumber);
+            this.VehicleID = clsVehiclesData.AddNewRecord(this.CarTypeID, this.CarModelID, this.ProducedYear, this.CurrentMillageCounter, this.ColorID, this.IsHasDamaged, this.RentStatusID, (DateTime)this.LastDateForRent, this.CarNumber);
             return VehicleID != -1;
         }
 
         private bool _UpdateVehicle()
         {
-            return clsVehiclesData.UpdateRecord(this.VehicleID, this.CurrentMillageCounter, this.IsHasDamaged, this.RentStatusID, this.LastDateForRent);
+            return clsVehiclesData.UpdateRecord(this.VehicleID, this.CurrentMillageCounter, this.IsHasDamaged, this.RentStatusID, (DateTime)this.LastDateForRent);
         }
 
         public bool Save()
@@ -181,9 +205,9 @@ namespace clsBuesnesLayer
             return clsVehicles.AddNewCarType(VehicleTypeName);
         }
 
-        public static bool AddNewCarModel(string NewModelName, int CarTypeID)
+        public static bool AddNewCarModel(string NewModelName, string CarTypeName)
         {
-            int NewID = clsVehiclesData.AddNewCarModel(NewModelName, CarTypeID);
+            int NewID = clsVehiclesData.AddNewCarModel(NewModelName,CarTypeName);
             return NewID != -1;
         }
 
@@ -207,12 +231,25 @@ namespace clsBuesnesLayer
             return clsVehiclesData.GetAllCarsModelsForTheCar(CarTypeName);
         }
 
+        public static int GetCarTypeIDByName(string CarTypeName)
+        {
+            return clsVehiclesData.GetCarIDByName(CarTypeName);
+        }
 
+        public static int GetCarModelIDByName(string ModelName)
+        {
+            return clsVehiclesData.GetCarModelIDByName(ModelName);
+        }
 
+        public static string GetColorNameByID(int ColorID)
+        {
+            return clsVehiclesData.GetColorNameByID(ColorID);
+        }
 
-
-
-
+        public static int GetColorIDByHisName(string ColorName)
+        {
+            return clsVehiclesData.GetColorID(ColorName);
+        }
 
     }
 }
