@@ -48,6 +48,7 @@
     <Compile Include="clsDrivers.cs" />
     <Compile Include="clsEmployee.cs" />
     <Compile Include="clsPersons.cs" />
+    <Compile Include="clsScheduling.cs" />
     <Compile Include="clsUsers.cs" />
     <Compile Include="clsVehicles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
