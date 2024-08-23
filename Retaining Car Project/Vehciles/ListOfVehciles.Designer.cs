@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListOfVehciles));
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbxModels = new System.Windows.Forms.ComboBox();
@@ -42,9 +43,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lbRecords = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.vehicleInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateVehicleDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteVehicleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeLastRentDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeRentStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.isAvaliableForRentingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -70,6 +79,7 @@
             this.cbxModels.Name = "cbxModels";
             this.cbxModels.Size = new System.Drawing.Size(244, 27);
             this.cbxModels.TabIndex = 8;
+            this.cbxModels.Visible = false;
             this.cbxModels.SelectedIndexChanged += new System.EventHandler(this.cbxModels_SelectedIndexChanged);
             // 
             // cbxTypes
@@ -93,6 +103,7 @@
             this.lbModel.Size = new System.Drawing.Size(94, 29);
             this.lbModel.TabIndex = 6;
             this.lbModel.Text = "Model:";
+            this.lbModel.Visible = false;
             // 
             // label2
             // 
@@ -110,7 +121,7 @@
             this.btnUpdate.BackColor = System.Drawing.Color.Silver;
             this.btnUpdate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnUpdate.BackgroundImage")));
             this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
             this.btnUpdate.Location = new System.Drawing.Point(1251, 12);
@@ -118,6 +129,7 @@
             this.btnUpdate.Size = new System.Drawing.Size(78, 70);
             this.btnUpdate.TabIndex = 3;
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
@@ -131,6 +143,7 @@
             this.btnAdd.Size = new System.Drawing.Size(78, 70);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // pictureBox1
             // 
@@ -159,6 +172,7 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.Location = new System.Drawing.Point(1, 99);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -200,6 +214,65 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.vehicleInfoToolStripMenuItem,
+            this.updateVehicleDetailsToolStripMenuItem,
+            this.deleteVehicleToolStripMenuItem,
+            this.changeLastRentDateToolStripMenuItem,
+            this.changeRentStatusToolStripMenuItem,
+            this.isAvaliableForRentingToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(278, 196);
+            // 
+            // vehicleInfoToolStripMenuItem
+            // 
+            this.vehicleInfoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("vehicleInfoToolStripMenuItem.Image")));
+            this.vehicleInfoToolStripMenuItem.Name = "vehicleInfoToolStripMenuItem";
+            this.vehicleInfoToolStripMenuItem.Size = new System.Drawing.Size(277, 32);
+            this.vehicleInfoToolStripMenuItem.Text = "Vehicle Info";
+            this.vehicleInfoToolStripMenuItem.Click += new System.EventHandler(this.vehicleInfoToolStripMenuItem_Click);
+            // 
+            // updateVehicleDetailsToolStripMenuItem
+            // 
+            this.updateVehicleDetailsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("updateVehicleDetailsToolStripMenuItem.Image")));
+            this.updateVehicleDetailsToolStripMenuItem.Name = "updateVehicleDetailsToolStripMenuItem";
+            this.updateVehicleDetailsToolStripMenuItem.Size = new System.Drawing.Size(277, 32);
+            this.updateVehicleDetailsToolStripMenuItem.Text = "Update Vehicle Details";
+            this.updateVehicleDetailsToolStripMenuItem.Click += new System.EventHandler(this.updateVehicleDetailsToolStripMenuItem_Click);
+            // 
+            // deleteVehicleToolStripMenuItem
+            // 
+            this.deleteVehicleToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteVehicleToolStripMenuItem.Image")));
+            this.deleteVehicleToolStripMenuItem.Name = "deleteVehicleToolStripMenuItem";
+            this.deleteVehicleToolStripMenuItem.Size = new System.Drawing.Size(277, 32);
+            this.deleteVehicleToolStripMenuItem.Text = "Delete Vehicle";
+            this.deleteVehicleToolStripMenuItem.Click += new System.EventHandler(this.deleteVehicleToolStripMenuItem_Click);
+            // 
+            // changeLastRentDateToolStripMenuItem
+            // 
+            this.changeLastRentDateToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("changeLastRentDateToolStripMenuItem.Image")));
+            this.changeLastRentDateToolStripMenuItem.Name = "changeLastRentDateToolStripMenuItem";
+            this.changeLastRentDateToolStripMenuItem.Size = new System.Drawing.Size(277, 32);
+            this.changeLastRentDateToolStripMenuItem.Text = "Change Last Rent Date";
+            // 
+            // changeRentStatusToolStripMenuItem
+            // 
+            this.changeRentStatusToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("changeRentStatusToolStripMenuItem.Image")));
+            this.changeRentStatusToolStripMenuItem.Name = "changeRentStatusToolStripMenuItem";
+            this.changeRentStatusToolStripMenuItem.Size = new System.Drawing.Size(277, 32);
+            this.changeRentStatusToolStripMenuItem.Text = "Change Rent Status";
+            // 
+            // isAvaliableForRentingToolStripMenuItem
+            // 
+            this.isAvaliableForRentingToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("isAvaliableForRentingToolStripMenuItem.Image")));
+            this.isAvaliableForRentingToolStripMenuItem.Name = "isAvaliableForRentingToolStripMenuItem";
+            this.isAvaliableForRentingToolStripMenuItem.Size = new System.Drawing.Size(277, 32);
+            this.isAvaliableForRentingToolStripMenuItem.Text = "Is Avaliable For Renting";
+            this.isAvaliableForRentingToolStripMenuItem.Click += new System.EventHandler(this.isAvaliableForRentingToolStripMenuItem_Click);
+            // 
             // ListOfVehciles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -222,6 +295,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,5 +316,12 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.ComboBox cbxModels;
         private System.Windows.Forms.ComboBox cbxTypes;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem vehicleInfoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateVehicleDetailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteVehicleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeLastRentDateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeRentStatusToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem isAvaliableForRentingToolStripMenuItem;
     }
 }

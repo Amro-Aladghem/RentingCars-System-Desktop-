@@ -18,14 +18,7 @@ namespace Retaining_Car_Project
             InitializeComponent();
         }
 
-        private void _LoadData()
-        {
-            dataGridView1.DataSource = clsUsers.GetAllPeople();
-        }
-
-        private void TestForm2_Load(object sender, EventArgs e)
-        {
-            _LoadData();
-        }
+     
+       
     }
 }

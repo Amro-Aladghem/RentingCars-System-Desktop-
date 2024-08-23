@@ -28,36 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.ctrVehicleInfoWithFilter1 = new Retaining_Car_Project.Vehciles.ctrVehicleInfoWithFilter();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // ctrVehicleInfoWithFilter1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(99, 82);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(953, 417);
-            this.dataGridView1.TabIndex = 0;
+            this.ctrVehicleInfoWithFilter1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ctrVehicleInfoWithFilter1.Location = new System.Drawing.Point(33, 18);
+            this.ctrVehicleInfoWithFilter1.Name = "ctrVehicleInfoWithFilter1";
+            this.ctrVehicleInfoWithFilter1.Size = new System.Drawing.Size(1231, 618);
+            this.ctrVehicleInfoWithFilter1.TabIndex = 0;
             // 
             // TestForm2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1114, 590);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1309, 648);
+            this.Controls.Add(this.ctrVehicleInfoWithFilter1);
             this.Name = "TestForm2";
             this.Text = "TestForm2";
-            this.Load += new System.EventHandler(this.TestForm2_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private Vehciles.ctrVehicleInfoWithFilter ctrVehicleInfoWithFilter1;
     }
 }

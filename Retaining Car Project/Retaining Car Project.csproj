@@ -7,7 +7,7 @@
     <ProjectGuid>{FB057916-F540-442A-90D3-F7972746468D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Retaining_Car_Project</RootNamespace>
-    <AssemblyName>Retaining Car Project</AssemblyName>
+    <AssemblyName>Retaining_Car_Project</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -302,17 +302,71 @@
     <Compile Include="Vehciles\AddingNewCarInSystem.Designer.cs">
       <DependentUpon>AddingNewCarInSystem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vehciles\AddUpdateDetailsForVehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vehciles\AddUpdateDetailsForVehicle.Designer.cs">
+      <DependentUpon>AddUpdateDetailsForVehicle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vehciles\ctrAdding_UpdatingVehicleDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Vehciles\ctrAdding_UpdatingVehicleDetails.Designer.cs">
       <DependentUpon>ctrAdding_UpdatingVehicleDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vehciles\ctrSearchVehicleInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Vehciles\ctrSearchVehicleInfo.Designer.cs">
+      <DependentUpon>ctrSearchVehicleInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vehciles\ctrVehicleInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Vehciles\ctrVehicleInfo.Designer.cs">
+      <DependentUpon>ctrVehicleInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vehciles\ctrVehicleInfoWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Vehciles\ctrVehicleInfoWithFilter.Designer.cs">
+      <DependentUpon>ctrVehicleInfoWithFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vehciles\DeleteVehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vehciles\DeleteVehicle.Designer.cs">
+      <DependentUpon>DeleteVehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vehciles\FindVehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vehciles\FindVehicle.Designer.cs">
+      <DependentUpon>FindVehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vehciles\ListOfCars.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vehciles\ListOfCars.Designer.cs">
+      <DependentUpon>ListOfCars.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vehciles\ListOfVehciles.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vehciles\ListOfVehciles.Designer.cs">
       <DependentUpon>ListOfVehciles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vehciles\NewUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Vehciles\NewUserControl.Designer.cs">
+      <DependentUpon>NewUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vehciles\VehicleInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vehciles\VehicleInfo.Designer.cs">
+      <DependentUpon>VehicleInfo.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="ctrTest.resx">
       <DependentUpon>ctrTest.cs</DependentUpon>
@@ -450,11 +504,38 @@
     <EmbeddedResource Include="Vehciles\AddingNewCarInSystem.resx">
       <DependentUpon>AddingNewCarInSystem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vehciles\AddUpdateDetailsForVehicle.resx">
+      <DependentUpon>AddUpdateDetailsForVehicle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vehciles\ctrAdding_UpdatingVehicleDetails.resx">
       <DependentUpon>ctrAdding_UpdatingVehicleDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vehciles\ctrSearchVehicleInfo.resx">
+      <DependentUpon>ctrSearchVehicleInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vehciles\ctrVehicleInfo.resx">
+      <DependentUpon>ctrVehicleInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vehciles\ctrVehicleInfoWithFilter.resx">
+      <DependentUpon>ctrVehicleInfoWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vehciles\DeleteVehicle.resx">
+      <DependentUpon>DeleteVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vehciles\FindVehicle.resx">
+      <DependentUpon>FindVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vehciles\ListOfCars.resx">
+      <DependentUpon>ListOfCars.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vehciles\ListOfVehciles.resx">
       <DependentUpon>ListOfVehciles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vehciles\NewUserControl.resx">
+      <DependentUpon>NewUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vehciles\VehicleInfo.resx">
+      <DependentUpon>VehicleInfo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

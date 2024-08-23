@@ -21,20 +21,32 @@ namespace Retaining_Car_Project.Vehciles
             InitializeComponent();
         }
 
-        private ComboBox _LoadDataToCbx()
+
+        private ComboBox _LoadDataToTypeCbx()
         {
             ComboBox cbx = new ComboBox();
             DataTable dt = new DataTable();
 
             dt = clsVehicles.GetAllCarTypesInTheSystem();
 
-            foreach(DataRow row in  dt.Rows)
+            foreach (DataRow row in dt.Rows)
             {
                 cbx.Items.Add(row["CarName"]);
             }
             cbx.SelectedIndex = 0;
 
             return cbx;
+        }
+        
+
+        private void _PerformTypeCbx(ComboBox cbx)
+        {
+            foreach (var Item in cbx.Items)
+            {
+                cbxTypes.Items.Add(Item);
+            }
+
+            cbxTypes.SelectedIndex = 0;
         }
 
         private void rdNewType_CheckedChanged(object sender, EventArgs e)
@@ -56,14 +68,17 @@ namespace Retaining_Car_Project.Vehciles
             Task.Run(() =>
             {
                 // Simulate loading small data
-                var Cbx = _LoadDataToCbx();
+                var Cbx = _LoadDataToTypeCbx();
 
                 // Safely update the DataGridView on the UI thread
                 this.Invoke((Action)(() =>
                 {
-                    cbxTypes = Cbx;
+                    _PerformTypeCbx(Cbx);
+                    cbxTypes.SelectedIndex = 0;
                 }));
             });
+
+           
         }
 
         private void AddNewModel()
@@ -81,15 +96,11 @@ namespace Retaining_Car_Project.Vehciles
 
         private void AddNewCar()
         {
-            if(!clsVehicles.AddNewCarType(txtTypeName.Text))
-            {
-                MessageBox.Show("Somthing Error, The Process Cancled,\n Try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
-            if(clsVehicles.AddNewCarModel(txtModelName_New.Text,txtTypeName.Text))
+
+            if(clsVehicles.AddingNewCarWithModel(txtModelName_New.Text,txtTypeName.Text))
             {
-                MessageBox.Show("The New Car with new Model has been added successfully!", "Infromation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The New Car with new Model has been added successfully!", "Infromation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             else

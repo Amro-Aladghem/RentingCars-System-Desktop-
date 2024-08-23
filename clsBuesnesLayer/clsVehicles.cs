@@ -47,7 +47,7 @@ namespace clsBuesnesLayer
             Mode = eMode.AddNew;
         }
 
-        public clsVehicles(int VehicleID, int CarTypeId, int CarModelID, string ProducedYear, decimal CurrentMilageCounter, int ColorID, string IsHasDamaged, int RentStatusID, DateTime LastDateForRent, string CarNumber)
+        public clsVehicles(int VehicleID, int CarTypeId, int CarModelID, string ProducedYear, decimal CurrentMilageCounter, int ColorID, string IsHasDamaged, int RentStatusID, DateTime? LastDateForRent, string CarNumber)
         {
             this.VehicleID = VehicleID;
             this.CarTypeID = CarTypeId;
@@ -67,7 +67,7 @@ namespace clsBuesnesLayer
         {
             int CarTypeID = -1, CarModelID = -1, RentStatusID = -1, ColorID = -1;
             string ProducedYear = "", IsHasDamaged = "", CarNumber = "";
-            decimal CurrentMillageCounter = 0; DateTime LastDateForRent = DateTime.MinValue;
+            decimal CurrentMillageCounter = 0; DateTime? LastDateForRent = DateTime.MinValue;
 
             if (clsVehiclesData.GetFullRecordByID(VehicleID, ref CarTypeID, ref CarModelID, ref ProducedYear, ref CurrentMillageCounter, ref ColorID, ref IsHasDamaged, ref RentStatusID, ref LastDateForRent, ref CarNumber))
             {
@@ -83,7 +83,7 @@ namespace clsBuesnesLayer
         {
             int VehicleID = -1, RentStatusID = -1, ColorID = -1;
             string ProducedYear = "", IsHasDamaged = "", CarNumber = "";
-            decimal CurrentMillageCounter = 0; DateTime LastDateForRent = DateTime.MinValue;
+            decimal CurrentMillageCounter = 0; DateTime? LastDateForRent = DateTime.MinValue;
 
             if (clsVehiclesData.GetFullRecordByTypeAndModel(ref VehicleID, CarTypeID, CarModelID, ref ProducedYear, ref CurrentMillageCounter, ref ColorID, ref IsHasDamaged, ref RentStatusID, ref LastDateForRent, ref CarNumber))
             {
@@ -99,7 +99,7 @@ namespace clsBuesnesLayer
         {
             int CarTypeID = -1, CarModelID = -1, RentStatusID = -1, ColorID = -1;
             string ProducedYear = "", IsHasDamaged = "", CarNumber = "";
-            decimal CurrentMillageCounter = 0; DateTime LastDateForRent = DateTime.MinValue; int VehicleID = -1;
+            decimal CurrentMillageCounter = 0; DateTime? LastDateForRent = DateTime.MinValue; int VehicleID = -1;
 
             if(clsVehiclesData.GetFullRecorrdByTwoName(CarTypeName,CarModelName, ref VehicleID, ref CarTypeID, ref CarModelID, ref ProducedYear, ref CurrentMillageCounter, ref ColorID, ref IsHasDamaged, ref RentStatusID, ref LastDateForRent, ref CarNumber))
             {
@@ -117,13 +117,13 @@ namespace clsBuesnesLayer
 
         private bool _AddNewVehicle()
         {
-            this.VehicleID = clsVehiclesData.AddNewRecord(this.CarTypeID, this.CarModelID, this.ProducedYear, this.CurrentMillageCounter, this.ColorID, this.IsHasDamaged, this.RentStatusID, (DateTime)this.LastDateForRent, this.CarNumber);
+            this.VehicleID = clsVehiclesData.AddNewRecord(this.CarTypeID, this.CarModelID, this.ProducedYear, this.CurrentMillageCounter, this.ColorID, this.IsHasDamaged, this.RentStatusID, this.LastDateForRent, this.CarNumber);
             return VehicleID != -1;
         }
 
         private bool _UpdateVehicle()
         {
-            return clsVehiclesData.UpdateRecord(this.VehicleID, this.CurrentMillageCounter, this.IsHasDamaged, this.RentStatusID, (DateTime)this.LastDateForRent);
+            return clsVehiclesData.UpdateRecord(this.VehicleID, this.CurrentMillageCounter, this.IsHasDamaged, this.RentStatusID, this.LastDateForRent);
         }
 
         public bool Save()
@@ -202,7 +202,8 @@ namespace clsBuesnesLayer
 
         public static bool AddNewCarType(string VehicleTypeName)
         {
-            return clsVehicles.AddNewCarType(VehicleTypeName);
+            int i= clsVehiclesData.AddNewCarType(VehicleTypeName);
+            return i != -1;
         }
 
         public static bool AddNewCarModel(string NewModelName, string CarTypeName)
@@ -249,6 +250,23 @@ namespace clsBuesnesLayer
         public static int GetColorIDByHisName(string ColorName)
         {
             return clsVehiclesData.GetColorID(ColorName);
+        }
+
+
+        public static DataTable GetAllCarsInTheSystem()
+        {
+            return clsVehiclesData.GetAllCarsInTheSystem();
+        }
+
+        public static bool DeleteCarFromSystem(int CarTypeID, int CarModelID)
+        {
+            return clsVehiclesData.DeleteCarFromSystem(CarTypeID, CarModelID);
+        }
+
+        public static bool AddingNewCarWithModel(string ModelName,string CarName)
+        {
+            int ID=clsVehiclesData.AddingNewCarTypeWithModel(ModelName, CarName);
+            return ID != -1;
         }
 
     }

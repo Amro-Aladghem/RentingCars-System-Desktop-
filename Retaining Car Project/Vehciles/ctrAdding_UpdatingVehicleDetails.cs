@@ -13,15 +13,42 @@ namespace Retaining_Car_Project.Vehciles
 {
     public partial class ctrAdding_UpdatingVehicleDetails : UserControl
     {
-        enum eMode { AddNew=1,Update=2 }
+      public  enum eMode { AddNew=1,Update=2 }
         eMode Mode;
 
         clsVehicles Vehicles = new clsVehicles();
+
+        bool FIsUdpdateMode = false;
+
+        public class GetTypeOfMood:EventArgs
+        {
+            public eMode mode { get; set; }
+
+            public GetTypeOfMood(eMode mode)
+            {
+                this.mode = mode;
+            }
+
+        }
+
+        public event EventHandler<GetTypeOfMood> OnSearchClick;
 
         public ctrAdding_UpdatingVehicleDetails()
         {
             InitializeComponent();
         }
+
+
+        public  void ActivateSearchClick(string CarTypeName,string ModelName)
+        {
+           cbxType.Text = CarTypeName; 
+           cbxModel.Text=ModelName;
+           btnSearch_Click(null,null);
+            FIsUdpdateMode = true;
+        }
+
+
+
 
         private ComboBox _LoadDataToTypeCbx()
         {
@@ -37,6 +64,24 @@ namespace Retaining_Car_Project.Vehciles
             cbx.SelectedIndex = 0;
 
             return cbx;
+        }
+
+       
+
+        private void _LoadDataToModelCbx(string CarTypeName)
+        {
+            cbxModel.Items.Clear();
+
+            DataTable dt = new DataTable();
+
+            dt = clsVehicles.GetAllModelsForTheVehicl(CarTypeName);
+            foreach (DataRow row in dt.Rows)
+            {
+                cbxModel.Items.Add(row["ModelName"]);
+            }
+
+            cbxModel.SelectedIndex = 0;
+            btnSearch.Enabled = true;
         }
 
         private ComboBox _LoadDataToColorCbx()
@@ -55,23 +100,6 @@ namespace Retaining_Car_Project.Vehciles
             return cbx;
 
         }
-
-        private void _LoadDataToModelCbx(string CarTypeName)
-        {
-            cbxModel.Items.Clear();
-
-            DataTable dt = new DataTable();
-
-            dt = clsVehicles.GetAllModelsForTheVehicl(CarTypeName);
-            foreach (DataRow row in dt.Rows)
-            {
-                cbxModel.Items.Add(row["ModelName"]);
-            }
-
-            cbxModel.SelectedIndex = 0;
-            btnSearch.Enabled = true;
-        }
-
 
         private void _TheProcessInAddNewMode()
         {
@@ -102,9 +130,11 @@ namespace Retaining_Car_Project.Vehciles
                 txtVehiclID.ReadOnly = true;
                 txtModelID.ReadOnly = true;
                 txtCarTypeID.ReadOnly = true;
-                cbxColor.Enabled = true;
+                cbxColor.Enabled = false;
                 txtProducedYear.ReadOnly = true;
                 txtCarTypeID.ReadOnly = true;
+                txtCarNumber.ReadOnly = true;
+                
             }
         }
 
@@ -113,9 +143,10 @@ namespace Retaining_Car_Project.Vehciles
             txtVehiclID.ReadOnly = true;
             txtModelID.ReadOnly = true;
             txtCarTypeID.ReadOnly = true;
-            cbxColor.Enabled = true;
+            cbxColor.Enabled = false;
             txtProducedYear.ReadOnly = true;
             txtCarTypeID.ReadOnly = true;
+            txtCarNumber.ReadOnly = true;
         }
 
         private void _TheProcessInUpdateMode()
@@ -132,17 +163,19 @@ namespace Retaining_Car_Project.Vehciles
             {
                 Mode = eMode.AddNew;
                 _TheProcessInAddNewMode();
+                OnSearchClick?.Invoke(sender, new GetTypeOfMood(Mode));
             }
             else
             { 
                  Mode = eMode.Update;
                  Vehicles = vehicle;
                 _TheProcessInUpdateMode();
+                OnSearchClick?.Invoke(sender, new GetTypeOfMood(Mode));
             }
 
             btnConfirm.Enabled = true;
             cbxType.Enabled = false;
-            cbxType.Enabled = false;
+            cbxModel.Enabled = false;
             btnSearch.Enabled = false;
         }
 
@@ -151,8 +184,51 @@ namespace Retaining_Car_Project.Vehciles
 
         }
 
+        private void _PerformTypeCbx(ComboBox cbx)
+        {
+            foreach(var Item in cbx.Items)
+            {
+                cbxType.Items.Add(Item);
+            }
+
+            cbxType.SelectedIndex = 0;
+        }
+
+        private void _PerformColorCbx(ComboBox cbx)
+        {
+            foreach(var Item in cbx.Items)
+            {
+                cbxColor.Items.Add(Item);
+            }
+
+            cbxColor.SelectedIndex = 0;
+        }
+
         private void ctrAdding_UpdatingVehicleDetails_Load(object sender, EventArgs e)
         {
+            cbxRentStatus.SelectedIndex = 1;
+
+            if(FIsUdpdateMode)
+            {
+                return;
+            }
+
+
+            Task.Run(() =>
+            {
+
+                // Simulate loading small data
+                var data = _LoadDataToTypeCbx();
+                var dataColor = _LoadDataToColorCbx();
+
+                // Safely update the DataGridView on the UI thread
+                this.Invoke((Action)(() =>
+                {
+                    _PerformTypeCbx(data);
+                    _PerformColorCbx(dataColor);
+                }));
+            });
+
 
         }
 
@@ -191,7 +267,7 @@ namespace Retaining_Car_Project.Vehciles
 
         private void txtmillageCounter_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(!char.IsDigit(e.KeyChar))
+            if(!char.IsDigit(e.KeyChar) && e.KeyChar!='.')
             {
                 e.Handled = true;
             }
@@ -252,14 +328,14 @@ namespace Retaining_Car_Project.Vehciles
                 Vehicles.CarModelID = Convert.ToInt32(txtModelID.Text);
                 Vehicles.ColorID = clsVehicles.GetColorIDByHisName(cbxColor.Text);
                 Vehicles.CarNumber = txtCarNumber.Text;
-                Vehicles.IsHasDamaged = txtIssue.Text;
             }
 
             Vehicles.RentStatusID = cbxRentStatus.SelectedIndex + 1;
             Vehicles.ProducedYear = txtProducedYear.Text;
             Vehicles.CurrentMillageCounter = Convert.ToDecimal(txtmillageCounter.Text);
+            Vehicles.IsHasDamaged = txtIssue.Text;
 
-            if(!Vehicles.Save())
+            if (!Vehicles.Save())
             {
                 MessageBox.Show("There is Somting Error , The Process Cancled!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -270,10 +346,18 @@ namespace Retaining_Car_Project.Vehciles
             lbFirstTime.Visible = false;
             _DisableControl();
             Mode = eMode.Update;
-
+            OnSearchClick?.Invoke(sender, new GetTypeOfMood(eMode.Update));
 
         }
 
+        private void txtCarTypeID_TextChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void cbxModel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

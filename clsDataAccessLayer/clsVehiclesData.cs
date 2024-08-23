@@ -5,6 +5,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,6 +14,20 @@ namespace clsDataAccessLayer
 {
     public class clsVehiclesData
     {
+
+        private static void PutParamtertocommand(SqlCommand Command,string Record,object Value)
+        {
+            if(Value==null)
+            {
+                Command.Parameters.AddWithValue(Record,System.DBNull.Value);
+            }
+            else
+            {
+                Command.Parameters.AddWithValue(Record,Value);
+            }    
+
+
+        }
 
         public static DataTable GetAllRecord()
         {
@@ -51,7 +67,7 @@ namespace clsDataAccessLayer
             return dataTable;
         }
 
-        public static bool GetFullRecordByID(int VehicleID, ref int CarTypeID, ref int CarModelID, ref string ProducedYear, ref decimal CurrentMillage, ref int ColorID, ref string isHasDamaged, ref int RentStatus, ref DateTime LastRentDate, ref string CarNumber)
+        public static bool GetFullRecordByID(int VehicleID, ref int CarTypeID, ref int CarModelID, ref string ProducedYear, ref decimal CurrentMillage, ref int ColorID, ref string isHasDamaged, ref int RentStatus, ref DateTime? LastRentDate, ref string CarNumber)
         {
             bool isFound = false;
 
@@ -78,9 +94,17 @@ namespace clsDataAccessLayer
                                 ProducedYear = (string)reader[3];
                                 CurrentMillage = (decimal)reader[4];
                                 ColorID = (int)reader[5];
-                                isHasDamaged = (string)reader[6];
+                                isHasDamaged = reader[6]?.ToString();
                                 RentStatus = (int)reader[7];
-                                LastRentDate = (DateTime)reader[8];
+                                if (reader[8] == DBNull.Value)
+                                {
+                                    LastRentDate = null;
+                                }
+                                else
+                                {
+                                    LastRentDate = (DateTime)reader[8];
+                                }
+
                                 CarNumber = (string)reader[9];
 
                             }
@@ -103,7 +127,7 @@ namespace clsDataAccessLayer
 
         }
 
-        public static bool GetFullRecordByTypeAndModel(ref int VehicleID, int CarTypeID, int CarModelID, ref string ProducedYear, ref decimal CurrentMillage, ref int ColorID, ref string isHasDamaged, ref int RentStatus, ref DateTime LastRentDate, ref string CarNumber)
+        public static bool GetFullRecordByTypeAndModel(ref int VehicleID, int CarTypeID, int CarModelID, ref string ProducedYear, ref decimal CurrentMillage, ref int ColorID, ref string isHasDamaged, ref int RentStatus, ref DateTime? LastRentDate, ref string CarNumber)
         {
             bool isFound = false;
 
@@ -130,9 +154,16 @@ namespace clsDataAccessLayer
                                 ProducedYear = (string)reader[3];
                                 CurrentMillage = (decimal)reader[4];
                                 ColorID = (int)reader[5];
-                                isHasDamaged = (string)reader[6];
+                                isHasDamaged = reader[6]?.ToString();
                                 RentStatus = (int)reader[7];
-                                LastRentDate = (DateTime)reader[8];
+                                if(reader[8] == DBNull.Value)
+                                {
+                                    LastRentDate = null;
+                                }
+                                else
+                                {
+                                    LastRentDate = (DateTime)reader[8];
+                                }
                                 CarNumber = (string)reader[9];
 
                             }
@@ -155,7 +186,7 @@ namespace clsDataAccessLayer
 
         }
 
-        public static bool GetFullRecorrdByTwoName(string CarTypeName,string ModelName, ref int VehicleID, ref int CarTypeID, ref int CarModelID, ref string ProducedYear, ref decimal CurrentMillage, ref int ColorID, ref string isHasDamaged, ref int RentStatus, ref DateTime LastRentDate, ref string CarNumber)
+        public static bool GetFullRecorrdByTwoName(string CarTypeName,string ModelName, ref int VehicleID, ref int CarTypeID, ref int CarModelID, ref string ProducedYear, ref decimal CurrentMillage, ref int ColorID, ref string isHasDamaged, ref int RentStatus, ref DateTime ? LastRentDate, ref string CarNumber)
         {
             bool isFound = false;
 
@@ -183,9 +214,18 @@ namespace clsDataAccessLayer
                                 ProducedYear = (string)reader[3];
                                 CurrentMillage = (decimal)reader[4];
                                 ColorID = (int)reader[5];
-                                isHasDamaged = (string)reader[6];
+                                isHasDamaged = reader[6]?.ToString();
                                 RentStatus = (int)reader[7];
-                                LastRentDate = (DateTime)reader[8];
+                                if (reader[8]==DBNull.Value)
+                                {
+                                    LastRentDate = null;
+                                }
+                                else
+                                {
+                                    LastRentDate = (DateTime)reader[8];
+                                }
+                                
+
                                 CarNumber = (string)reader[9];
 
                             }
@@ -208,7 +248,7 @@ namespace clsDataAccessLayer
         }
 
 
-        public static int AddNewRecord(int CarTypeID, int CarModelID, string ProducedYear, decimal CurrentMillage, int ColorID, string isHasDamaged, int RentStatus, DateTime LastRentDate, string CarNumber)
+        public static int AddNewRecord(int CarTypeID, int CarModelID, string ProducedYear, decimal CurrentMillage, int ColorID, string isHasDamaged, int RentStatus, DateTime? LastRentDate, string CarNumber)
         {
             int NewID = -1;
 
@@ -229,9 +269,11 @@ namespace clsDataAccessLayer
                         command.Parameters.AddWithValue("@ProducedYear", ProducedYear);
                         command.Parameters.AddWithValue("@CurrentMillage", CurrentMillage);
                         command.Parameters.AddWithValue("@ColorID", ColorID);
-                        command.Parameters.AddWithValue("@isHasDamaged", isHasDamaged);
+                        PutParamtertocommand(command, "@IsHasDamaged", isHasDamaged);
                         command.Parameters.AddWithValue("@RetainStatus", RentStatus);
-                        command.Parameters.AddWithValue("@LastRetianDate", LastRentDate);
+                        PutParamtertocommand(command, "@LastRetianDate", LastRentDate);
+                        
+                       
                         command.Parameters.AddWithValue("@CarNumber", CarNumber);
 
                         object reader = command.ExecuteScalar();
@@ -253,7 +295,7 @@ namespace clsDataAccessLayer
 
 
         }
-        public static bool UpdateRecord(int VehicleID, decimal CurrentMillage, string isHasDamaged, int RentStatus, DateTime LastRentDate)
+        public static bool UpdateRecord(int VehicleID, decimal CurrentMillage, string isHasDamaged, int RentStatus, DateTime? LastRentDate)
         {
             bool isDone = false;
 
@@ -269,9 +311,9 @@ namespace clsDataAccessLayer
                     {
                         command.Parameters.AddWithValue("@VehicleID", VehicleID);
                         command.Parameters.AddWithValue("@CurrentMilleage", CurrentMillage);
-                        command.Parameters.AddWithValue("@IsHasDamaged", isHasDamaged);
+                        PutParamtertocommand(command, "@IsHasDamaged", isHasDamaged);
                         command.Parameters.AddWithValue("@RentStatus", RentStatus);
-                        command.Parameters.AddWithValue("@LastDateOfRent", LastRentDate);
+                        PutParamtertocommand(command, "@LastDateOfRent", LastRentDate);
 
                         int rowaffected = command.ExecuteNonQuery();
                         if(rowaffected>0)
@@ -374,7 +416,7 @@ namespace clsDataAccessLayer
                 using (SqlConnection connection=new SqlConnection(clsDataAccessSettings.ConnectionString))
                 {
                     connection.Open();
-                    string query = "Insert INto CarsModels (CarTypeID,ModelName)\r\nvalues\r\n(\r\n  dbo.GetTypeIDByCarName(@CarName),@ModelName'\r\n) ;select SCOPE_IDENTITY()";
+                    string query = "Insert INto CarsModels (CarTypeID,ModelName)\r\nvalues\r\n(\r\n  dbo.GetTypeIDByCarName(@CarName),@ModelName) ;select SCOPE_IDENTITY()";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -389,6 +431,49 @@ namespace clsDataAccessLayer
                     }
 
                 }
+            }
+            catch
+            {
+                //
+            }
+
+            return NewID;
+
+        }
+
+        public static int AddingNewCarTypeWithModel(string NewModelName,string CarTypeName)
+        {
+            int NewID = -1;
+
+            try
+            {
+                using(SqlConnection connectionn=new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+
+                    connectionn.Open();
+                    using (SqlCommand command = new SqlCommand("SP_AddingNewTypeCarWithModel", connectionn))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@CarTypeName", CarTypeName);
+                        command.Parameters.AddWithValue("@ModelName", NewModelName);
+
+                        SqlParameter returnvalue = new SqlParameter("@return", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.ReturnValue
+                        };
+
+                        command.Parameters.Add(returnvalue);
+                        command.ExecuteNonQuery();
+
+                        if((int)returnvalue.Value== 1) 
+                        { 
+                          NewID=(int)returnvalue.Value;
+                        }
+
+                    }
+                }
+
             }
             catch
             {
@@ -860,7 +945,76 @@ namespace clsDataAccessLayer
 
             return ID;
         }
-      
+        
+        public static DataTable GetAllCarsInTheSystem()
+        {
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+                    string query = "select T.CarTypeID,CarModelID,CarsTypes.CarName ,T.ModelName from CarsModels T INner join CarsTypes on CarsTypes.CarTypeID=T.CarTypeID";
+
+                    using (SqlCommand command = new SqlCommand(query,connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                dt.Load(reader);
+                            }
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                //
+            }
+
+            return dt;
+        }
+
+        public static bool DeleteCarFromSystem(int CarID,int ModelID)
+        {
+            bool isDone = false;
+
+            try
+            {
+                using(SqlConnection connection=new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SP_DeleteCarFromSys", connection))
+                    {
+                        command.CommandType=CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@CarTypeID", CarID);
+                        command.Parameters.AddWithValue("@CarModelID", ModelID);
+
+                        int rowaffected = command.ExecuteNonQuery();
+                        if(rowaffected >0)
+                        {
+                            isDone = true;
+                        }
+                        
+                    }
+                }
+
+            }
+            catch
+            {
+                //
+            }
+
+            return isDone;
+        }
+
+
+
 
 
 

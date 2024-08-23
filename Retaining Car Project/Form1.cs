@@ -3,6 +3,7 @@ using Retaining_Car_Project.Drivers;
 using Retaining_Car_Project.Employees;
 using Retaining_Car_Project.SystemCustomer;
 using Retaining_Car_Project.Users;
+using Retaining_Car_Project.Vehciles;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -291,6 +292,42 @@ namespace LoginSystem
         private void findCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FindCustomer frm = new FindCustomer();
+            frm.ShowDialog();
+        }
+
+        private void vehiclesListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListOfVehciles frm = new ListOfVehciles();
+            frm.ShowDialog();
+        }
+
+        private void addUpdateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddUpdateDetailsForVehicle frm = new AddUpdateDetailsForVehicle();
+            frm.ShowDialog();
+        }
+
+        private void deleteVehicleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteVehicle frm = new DeleteVehicle();
+            frm.ShowDialog();
+        }
+
+        private void findVehicleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FindVehicle frm = new FindVehicle();
+            frm.ShowDialog();
+        }
+
+        private void carsListToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ListOfCars frm = new ListOfCars();
+            frm.ShowDialog();
+        }
+
+        private void addCarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddingNewCarInSystem frm = new AddingNewCarInSystem();
             frm.ShowDialog();
         }
 
