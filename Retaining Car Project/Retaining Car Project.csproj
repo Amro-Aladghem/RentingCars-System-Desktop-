@@ -164,6 +164,12 @@
     <Compile Include="LoginSystem\LoginRegistry.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RentingsVehicles\ctrAddNewRenting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RentingsVehicles\ctrAddNewRenting.Designer.cs">
+      <DependentUpon>ctrAddNewRenting.cs</DependentUpon>
+    </Compile>
     <Compile Include="SystemCustomer\ctrCustomerInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -435,6 +441,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RentingsVehicles\ctrAddNewRenting.resx">
+      <DependentUpon>ctrAddNewRenting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SystemCustomer\ctrCustomerInfo.resx">
       <DependentUpon>ctrCustomerInfo.cs</DependentUpon>
     </EmbeddedResource>

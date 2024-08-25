@@ -45,7 +45,9 @@
     <Compile Include="clsDataAccessSettings.cs" />
     <Compile Include="clsDriversData.cs" />
     <Compile Include="clsEmployeeData.cs" />
+    <Compile Include="clsPaymentData.cs" />
     <Compile Include="clsPersonsData.cs" />
+    <Compile Include="clsRentingData.cs" />
     <Compile Include="clsSchedulingData.cs" />
     <Compile Include="clsUsersData.cs" />
     <Compile Include="clsVehiclesData.cs" />

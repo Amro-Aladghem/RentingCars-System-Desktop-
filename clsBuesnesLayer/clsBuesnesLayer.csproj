@@ -47,7 +47,9 @@
     <Compile Include="clsCustomers.cs" />
     <Compile Include="clsDrivers.cs" />
     <Compile Include="clsEmployee.cs" />
+    <Compile Include="clsPayment.cs" />
     <Compile Include="clsPersons.cs" />
+    <Compile Include="clsRenting.cs" />
     <Compile Include="clsScheduling.cs" />
     <Compile Include="clsUsers.cs" />
     <Compile Include="clsVehicles.cs" />

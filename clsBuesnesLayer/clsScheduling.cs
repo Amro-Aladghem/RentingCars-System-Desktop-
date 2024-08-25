@@ -115,7 +115,7 @@ namespace clsBuesnesLayer
             return clsSchedulingData.UpdateSchedule(this.ScheduleID, this.VehicleID, this.NumberOfDays, this.StartFrom, this.EndAt, this.Status, this.DriverID);
         }
 
-        public bool Save()
+        public virtual bool Save()
         {
 
             switch (Mode)

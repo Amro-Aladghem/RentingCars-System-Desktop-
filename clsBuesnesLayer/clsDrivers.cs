@@ -146,6 +146,11 @@ namespace clsBuesnesLayer
         }
 
 
+        public static bool IsDriverAvialableForDriving(int DriverID, ref DateTime ? ReturnDate)
+        {
+            return clsDriversData.IsDriverAvailableForDriving(DriverID,ref ReturnDate);
+        }
+
 
 
 

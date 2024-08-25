@@ -67,3 +67,4 @@ C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Ca
 C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Car_Project.Vehciles.NewUserControl.resources
 C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Car_Project.Vehciles.ctrSearchVehicleInfo.resources
 C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Car_Project.Vehciles.ListOfCars.resources
+C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Car_Project.RentingsVehicles.ctrAddNewRenting.resources

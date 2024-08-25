@@ -310,6 +310,46 @@ namespace clsDataAccessLayer
             return isFound;
         }
 
+        public static bool IsDriverAvailableForDriving(int DriverID,ref DateTime? ReturnDate)
+        {
+            bool isAvailable = true;
+
+            try
+            {
+
+                using(SqlConnection connection=new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+                    string query = "select dbo.GetEndOfRentingTimeForDriverIDIFExits(@DriverID)";
+
+                    using(SqlCommand command=new SqlCommand(query,connection))
+                    {
+
+                        command.Parameters.AddWithValue("@DriverID", DriverID);
+
+                        object reader = command.ExecuteScalar();
+                        if (reader != null && DateTime.TryParse(reader.ToString(), out DateTime Value))
+                        {
+                            ReturnDate= Value;
+                            isAvailable = false;
+                        }
+                    }
+
+                }
+            }
+            catch
+            {
+                //
+            }
+
+            return isAvailable;
+        }
+
+
+
+
+
+
 
 
 

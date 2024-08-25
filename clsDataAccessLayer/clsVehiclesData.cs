@@ -1013,6 +1013,105 @@ namespace clsDataAccessLayer
             return isDone;
         }
 
+        public static decimal GetPriceForRentingCarByName(string FirstName,string LastName)
+        {
+            decimal Price = 0;
+
+            try
+            {
+                using(SqlConnection connection=new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+
+                    connection.Open();
+                    string query = "select  dbo.GetRentingPriceForVehcileByName(@FirstName,@LastName)";
+
+                    using(SqlCommand command=new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@FirstName", FirstName);
+                        command.Parameters.AddWithValue("@LastName", LastName);
+
+                        object reader = command.ExecuteScalar();
+                        if(reader!=null && decimal.TryParse(reader.ToString(),out decimal value))
+                        {
+                            Price=value;
+                        }
+
+                    }
+
+                }
+            }
+            catch
+            {
+                //
+            }
+
+            return Price;
+        }
+
+        public static decimal GetPriceForRentingCarByID(int VehicleID)
+        {
+            decimal Price = 0;
+
+            try
+            {
+
+                using(SqlConnection connection=new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+                    string query = "select PricePerDay from VehicleRentingPrice where VehicleID=@VehicleID";
+
+                    using(SqlCommand command=new SqlCommand(query,connection))
+                    {
+                        command.Parameters.AddWithValue("@VehicleID", VehicleID);
+                        
+                        object reader = command.ExecuteScalar();    
+                        if(reader!=null && decimal.TryParse(reader.ToString(),out decimal value))
+                        {
+                            Price = value;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                //
+            }
+
+            return Price;
+        }
+
+        public static bool IsVehcileAvalableForRenting(int VehicleID,ref DateTime? ReturnDate)
+        {
+            bool isRight = true;
+
+            try
+            {
+                using(SqlConnection connection=new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+                    string query = "select dbo.GetReturnDateForVehicleIFActive(@VehicleID)";
+
+                    using(SqlCommand command=new SqlCommand(query,connection))
+                    {
+                        command.Parameters.AddWithValue("@VehicleID", VehicleID);
+
+                        object reader = command.ExecuteScalar();
+                        if(reader!=null && DateTime.TryParse(reader.ToString(),out DateTime value))
+                        {
+                            ReturnDate = value;
+                            isRight = false;
+                        }
+                    }
+
+                }
+            }
+            catch
+            {
+                //
+            }
+
+            return isRight;
+        }
 
 
 
