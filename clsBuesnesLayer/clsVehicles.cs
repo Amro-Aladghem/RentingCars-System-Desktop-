@@ -269,11 +269,16 @@ namespace clsBuesnesLayer
             return ID != -1;
         }
 
-        public static bool IsVehicleAvialableForRenting(int VehicleID,ref DateTime? ReturnDate)
+        public static bool IsVehicleAvialableForRenting(string CarTypeName,string ModelName,ref DateTime? ReturnDate)
         {
-            return clsVehiclesData.IsVehcileAvalableForRenting(VehicleID,ref ReturnDate);
+            return clsVehiclesData.IsVehcileAvalableForRenting(CarTypeName,ModelName,ref ReturnDate);
         }
 
+
+        public static decimal GetPriceForRentingVehciel(int VehcileID)
+        {
+            return clsVehicles.GetPriceForRentingVehciel(VehcileID);
+        }
 
 
     }

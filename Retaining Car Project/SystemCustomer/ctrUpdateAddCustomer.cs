@@ -13,7 +13,7 @@ namespace Retaining_Car_Project.SystemCustomer
 {
     public partial class ctrUpdateAddCustomer : UserControl
     {
-        enum eMode { AddNew=1,Update=2}
+        enum eMode { AddNew = 1, Update = 2 }
         eMode Mode;
 
         clsCustomers Customer;
@@ -24,9 +24,10 @@ namespace Retaining_Car_Project.SystemCustomer
             Customer = new clsCustomers();
         }
 
+
         private void _LoadData()
         {
-            if(Customer!=null)
+            if (Customer != null)
             {
                 lbCustomerID.Text = Customer.CustomerID.ToString();
                 txtFirstName.Text = Customer.FirstName;
@@ -36,7 +37,7 @@ namespace Retaining_Car_Project.SystemCustomer
                 txtEmail.Text = Customer.Email;
                 cbxNationality.Text = Customer.Nationality;
                 txtNationNum.Text = Customer.NationalNum.ToString();
-                if(Customer.Gendor)
+                if (Customer.Gendor)
                 {
                     rdFemale.Checked = true;
                 }
@@ -62,7 +63,19 @@ namespace Retaining_Car_Project.SystemCustomer
             Mode = eMode.Update;
             _LoadData();
         }
-        public event EventHandler OnSaveClick;
+
+        public class GetObjectOfCustomer : EventArgs
+        {
+            public clsCustomers Customer { get; set; }
+
+            public GetObjectOfCustomer(clsCustomers customer)
+            {
+                Customer = customer;
+            }
+        }
+
+
+        public event EventHandler<GetObjectOfCustomer> OnSaveClick;
 
 
 
@@ -224,7 +237,7 @@ namespace Retaining_Car_Project.SystemCustomer
 
             lbCustomerID.Text = Customer.CustomerID.ToString();
             Mode = eMode.Update;
-            OnSaveClick?.Invoke(null, null);
+            OnSaveClick?.Invoke(sender,new GetObjectOfCustomer(Customer));
 
             MessageBox.Show("The Process has Done Succesfully!");
 

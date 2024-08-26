@@ -244,7 +244,7 @@ namespace clsDataAccessLayer
             return NewID;
         }
 
-        public static bool UpdateSchedule(int ScheduleID,int VehicleID,int NumberOfDays,DateTime StartFrom,DateTime EndAt,int statusID,int ?DriverID)
+        public static bool UpdateSchedule(int ScheduleID,int VehicleID,int NumberOfDays,DateTime StartFrom,DateTime EndAt,int ?DriverID)
         {
             bool isDone = false;
 
@@ -254,7 +254,7 @@ namespace clsDataAccessLayer
                 using(SqlConnection connection=new SqlConnection(clsDataAccessSettings.ConnectionString))
                 {
                     connection.Open();
-                    string query = " Update Schedules \r\n set VehicleID=@VehicleID ,DateOfSchedule=GETDATE(), NumberOfDay=@NumberOfDay,StartFrom=@StartFrom , EndAt=@EndAt ,status=@status , DriverID=@DriverID where ScheduleID=@ScheduleID;";
+                    string query = " Update Schedules \r\n set VehicleID=@VehicleID ,DateOfSchedule=GETDATE(), NumberOfDay=@NumberOfDay,StartFrom=@StartFrom , EndAt=@EndAt , DriverID=@DriverID where ScheduleID=@ScheduleID;";
 
                     using(SqlCommand command=new SqlCommand(query,connection))
                     {
@@ -263,7 +263,6 @@ namespace clsDataAccessLayer
                         command.Parameters.AddWithValue("@NumberOfDay", NumberOfDays);
                         command.Parameters.AddWithValue("@StartFrom", StartFrom);
                         command.Parameters.AddWithValue("@EndAt", EndAt);
-                        command.Parameters.AddWithValue("@status", statusID);
                         AddValueToCommandParam(command, "@DriverID", DriverID);
 
                         int rowaffected = command.ExecuteNonQuery();

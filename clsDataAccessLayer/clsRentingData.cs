@@ -209,7 +209,7 @@ namespace clsDataAccessLayer
             return NewID;
         }
 
-        public static bool UpdateRentingRecrod(int RentingID,decimal DistanseCovered,decimal FinalMillage,DateTime ReturnDate,bool isActive,bool isPaid,decimal AdditionalFees,string Note,decimal TotalPaidPrice)
+        public static bool UpdateRentingRecrod(int RentingID,decimal DistanseCovered,decimal FinalMillage,DateTime ReturnDate,bool isActive,decimal AdditionalFees,string Note)
         {
             bool isDone = false;
 
@@ -218,7 +218,7 @@ namespace clsDataAccessLayer
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
                 {
                     connection.Open();
-                    string query = " Update Rents\r\n Set DistanceCovered=@DistanceCoverd,FinalMileage=@FinalMileage,ReturnDate=@ReturnDate,isActive=@isActive,isPaid=@isPaid,AdditionalFees=@AdditionalFees,Note=@Note,TotalPaidPrice=@TotalPaidPrice where RentID=@RentID";
+                    string query = " Update Rents\r\n Set DistanceCovered=@DistanceCoverd,FinalMileage=@FinalMileage,ReturnDate=@ReturnDate,isActive=@isActive,AdditionalFees=@AdditionalFees,Note=@Note where RentID=@RentID";
 
                     using(SqlCommand command=new SqlCommand(query,connection))
                     {
@@ -227,10 +227,9 @@ namespace clsDataAccessLayer
                         command.Parameters.AddWithValue("@FinalMileage", FinalMillage);
                         command.Parameters.AddWithValue("@ReturnDate", ReturnDate);
                         command.Parameters.AddWithValue("@isActive", isActive);
-                        command.Parameters.AddWithValue("@isPaid", isPaid);
+
                         command.Parameters.AddWithValue("@AdditionalFees", AdditionalFees);
                         command.Parameters.AddWithValue("@Note", Note);
-                        command.Parameters.AddWithValue("@TotalPaidPrice", TotalPaidPrice);
 
                         int rowaffected = command.ExecuteNonQuery();
                         if(rowaffected>0)

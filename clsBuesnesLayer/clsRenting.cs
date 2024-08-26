@@ -127,7 +127,7 @@ namespace clsBuesnesLayer
 
         private bool _UpdateRenting()
         {
-            return clsRentingData.UpdateRentingRecrod(this.RentID, (decimal)this.DistanceCovered, (decimal)this.FinalMileage, (DateTime)this.ReturnDate, this.IsActive, this.IsPaid, this.AddionalFees, this.Note, this.TotalPaidPrice);
+            return clsRentingData.UpdateRentingRecrod(this.RentID, (decimal)this.DistanceCovered, (decimal)this.FinalMileage, (DateTime)this.ReturnDate, this.IsActive, this.AddionalFees, this.Note);
         }
 
         public bool Save()

@@ -121,7 +121,7 @@
   <data name="btnSearch.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAIaVSURBVHhe7Z0J
+        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAIaVSURBVHhe7Z0J
         eB1V3f9bxH0F28ydmwIFahFZKggiiIiIgiCCYlEUpG1mJiGlG6XUUlqSVARFRRRceF+QP8piERdAEGi5
         c+YmadKma5pm60b3pm2am+5Lkv85yalvmfzonfWu38/zfJ4q0HPmzD3bzJzzOwMAALnB4NLYR6JjKs9Q
         NfNLEZ3dpBjmeNWw7o/o5p8iujVb1dkbis4quYsjBlvF/5s27h5uD2E3t126PmKYTfzPuojG5vB0/qlq
@@ -702,7 +702,7 @@
   <data name="btnCheckCar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAGO1SURBVHhe7Z0H
+        vgAADr4B6kKxwAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAGO1SURBVHhe7Z0H
         fFRluv9x994td+9/7929yswEVITMTGJoikgRMDOTBEIIBELovfeW0EmhJYTQexUUKUoHUXovVuyCurpr
         W3e919XVXV0Lvv/3Hc6E4fCkzSnznpnf9/P5fvRz95p5nnPe8z7POe8p1QAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAANBIs5o1f53ksiV5XfZ8j8u+g//zee573M+8LtvH/J9ve5z2Uz6XbS3/
@@ -1131,4 +1131,7 @@
         AAAAAAAAAAAAgExUq/b/AQockFdybvZAAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

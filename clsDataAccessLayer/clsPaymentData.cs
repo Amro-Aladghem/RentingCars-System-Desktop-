@@ -36,7 +36,7 @@ namespace clsDataAccessLayer
                     string query = "Insert Into Payments(RentID,DateOfPaid,PaidAmount,ReturnAmount,Note)\r\nvalues \r\n" +
                         "(@RentID,@DateOFPaid,@PaidAmount,@ReturnAmount,@Note);select SCOPE_IDENTITY();";
 
-                    using(SqlCommand command=new SqlCommand(clsDataAccessSettings.ConnectionString))
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@RentID", RentID);
                         command.Parameters.AddWithValue("@DateOFPaid", DateOfPay);
@@ -45,7 +45,7 @@ namespace clsDataAccessLayer
                         AddValueToCommandParam(command, "@Note", Note);
 
                         object reader = command.ExecuteScalar();
-                        if(reader!=null && int.TryParse(reader.ToString(),out int value))
+                        if (reader != null && int.TryParse(reader.ToString(), out int value))
                         {
                             NewID = value;
                         }

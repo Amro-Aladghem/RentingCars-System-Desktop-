@@ -61,5 +61,10 @@ namespace Retaining_Car_Project.SystemCustomer
             Customer = null;
 
         }
+
+        private void DeleteCustomer_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

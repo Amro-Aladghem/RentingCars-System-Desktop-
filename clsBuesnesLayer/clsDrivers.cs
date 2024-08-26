@@ -151,7 +151,16 @@ namespace clsBuesnesLayer
             return clsDriversData.IsDriverAvailableForDriving(DriverID,ref ReturnDate);
         }
 
+        public static DataTable GetAllAvaialableDrivers()
+        {
+            return clsDriversData.GetAllAvaialableDrivers();
+        }
 
+        public static int GetDriverIDByFullName(string FirstName,string LastName)
+        {
+            return clsDriversData.GetDriverIDByFullName(FirstName,LastName);
+
+        }
 
 
 

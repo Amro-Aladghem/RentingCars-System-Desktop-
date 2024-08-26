@@ -15,13 +15,13 @@ namespace Retaining_Car_Project.Employees
 {
     public partial class ctrAddUpdateEmployee : UserControl
     {
-        enum eMode { AddNew=1,Update=2 }
+        enum eMode { AddNew = 1, Update = 2 }
         eMode Mode;
 
 
         clsEmployee Employee = new clsEmployee();
 
-        public event EventHandler OnSaveClick;
+        public event EventHandler OnSaveClick;        
         public ctrAddUpdateEmployee()
         {
             InitializeComponent();

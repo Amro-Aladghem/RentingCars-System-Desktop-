@@ -124,6 +124,7 @@
             this.Name = "DeleteCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DeleteCustomer";
+            this.Load += new System.EventHandler(this.DeleteCustomer_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

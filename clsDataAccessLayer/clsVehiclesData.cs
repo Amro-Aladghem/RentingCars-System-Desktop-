@@ -1080,7 +1080,7 @@ namespace clsDataAccessLayer
             return Price;
         }
 
-        public static bool IsVehcileAvalableForRenting(int VehicleID,ref DateTime? ReturnDate)
+        public static bool IsVehcileAvalableForRenting(string CarName,string ModelName,ref DateTime? ReturnDate)
         {
             bool isRight = true;
 
@@ -1089,11 +1089,12 @@ namespace clsDataAccessLayer
                 using(SqlConnection connection=new SqlConnection(clsDataAccessSettings.ConnectionString))
                 {
                     connection.Open();
-                    string query = "select dbo.GetReturnDateForVehicleIFActive(@VehicleID)";
+                    string query = "select dbo.GetReturnDateForVehicleIFActive(@CarName,@CarModel)";
 
                     using(SqlCommand command=new SqlCommand(query,connection))
                     {
-                        command.Parameters.AddWithValue("@VehicleID", VehicleID);
+                        command.Parameters.AddWithValue("@CarName", CarName);
+                        command.Parameters.AddWithValue("@CarModel", ModelName);
 
                         object reader = command.ExecuteScalar();
                         if(reader!=null && DateTime.TryParse(reader.ToString(),out DateTime value))

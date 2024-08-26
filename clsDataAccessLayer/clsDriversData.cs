@@ -345,9 +345,72 @@ namespace clsDataAccessLayer
             return isAvailable;
         }
 
+        public static DataTable GetAllAvaialableDrivers()
+        {
+            DataTable dt = new DataTable();
 
+            try
+            {
 
+                using(SqlConnection connection=new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+                    string query = "select (FirstName+' ' +LastName) as DriverName from Drivers where isActive=1; ";
 
+                    using(SqlCommand command=new SqlCommand(query,connection))
+                    {
+                        using(SqlDataReader reader=command.ExecuteReader())
+                        {
+                            if(reader.HasRows)
+                            {
+                                dt.Load(reader);
+                            }
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                //
+            }
+
+            return dt;
+        }
+
+        public static int GetDriverIDByFullName(string FirstName,string LastName)
+        {
+            int ID = -1;
+
+            try
+            {
+                using(SqlConnection connection=new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+
+                    connection.Open();
+                    string query = "select DriverID from Drivers where FirstName=@FirstName And LastName=@LastName";
+
+                    using(SqlCommand command=new SqlCommand(query,connection))
+                    {
+
+                        command.Parameters.AddWithValue("@FirstName", FirstName);
+                        command.Parameters.AddWithValue("@LastName", LastName);
+
+                        object reader=command.ExecuteScalar();
+                        if(reader!= null && int.TryParse(reader.ToString(), out int value))
+                        {
+                            ID = value;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                //
+            }
+
+            return ID;
+        }
+        
 
 
 

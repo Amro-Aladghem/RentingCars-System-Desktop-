@@ -112,7 +112,7 @@ namespace clsBuesnesLayer
 
         private bool _UpdateScheduling()
         {
-            return clsSchedulingData.UpdateSchedule(this.ScheduleID, this.VehicleID, this.NumberOfDays, this.StartFrom, this.EndAt, this.Status, this.DriverID);
+            return clsSchedulingData.UpdateSchedule(this.ScheduleID, this.VehicleID, this.NumberOfDays, this.StartFrom, this.EndAt, this.DriverID);
         }
 
         public virtual bool Save()

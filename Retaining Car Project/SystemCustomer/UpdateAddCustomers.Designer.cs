@@ -29,24 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateAddCustomers));
-            this.ctrUpdateAddCustomer1 = new Retaining_Car_Project.SystemCustomer.ctrUpdateAddCustomer();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbHead = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbHead = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.ctrUpdateAddCustomer1 = new Retaining_Car_Project.SystemCustomer.ctrUpdateAddCustomer();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ctrUpdateAddCustomer1
-            // 
-            this.ctrUpdateAddCustomer1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ctrUpdateAddCustomer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.ctrUpdateAddCustomer1.Location = new System.Drawing.Point(25, 116);
-            this.ctrUpdateAddCustomer1.Name = "ctrUpdateAddCustomer1";
-            this.ctrUpdateAddCustomer1.Size = new System.Drawing.Size(1170, 507);
-            this.ctrUpdateAddCustomer1.TabIndex = 0;
-            this.ctrUpdateAddCustomer1.OnSaveClick += new System.EventHandler(this.ctrUpdateAddCustomer1_OnSaveClick);
             // 
             // panel1
             // 
@@ -58,6 +48,16 @@
             this.panel1.Size = new System.Drawing.Size(1217, 100);
             this.panel1.TabIndex = 1;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(567, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(133, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // lbHead
             // 
             this.lbHead.AutoSize = true;
@@ -68,16 +68,6 @@
             this.lbHead.Size = new System.Drawing.Size(449, 48);
             this.lbHead.TabIndex = 0;
             this.lbHead.Text = "AddUpdate Customer";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(567, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(133, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // btnClose
             // 
@@ -92,6 +82,14 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // ctrUpdateAddCustomer1
+            // 
+            this.ctrUpdateAddCustomer1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ctrUpdateAddCustomer1.Location = new System.Drawing.Point(25, 117);
+            this.ctrUpdateAddCustomer1.Name = "ctrUpdateAddCustomer1";
+            this.ctrUpdateAddCustomer1.Size = new System.Drawing.Size(1170, 507);
+            this.ctrUpdateAddCustomer1.TabIndex = 3;
+            // 
             // UpdateAddCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -99,9 +97,9 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1216, 686);
+            this.Controls.Add(this.ctrUpdateAddCustomer1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.ctrUpdateAddCustomer1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "UpdateAddCustomers";
@@ -116,11 +114,10 @@
         }
 
         #endregion
-
-        private ctrUpdateAddCustomer ctrUpdateAddCustomer1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbHead;
         private System.Windows.Forms.Button btnClose;
+        private ctrUpdateAddCustomer ctrUpdateAddCustomer1;
     }
 }

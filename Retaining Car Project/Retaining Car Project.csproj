@@ -170,6 +170,30 @@
     <Compile Include="RentingsVehicles\ctrAddNewRenting.Designer.cs">
       <DependentUpon>ctrAddNewRenting.cs</DependentUpon>
     </Compile>
+    <Compile Include="RentingsVehicles\ctrPayRenting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RentingsVehicles\ctrPayRenting.Designer.cs">
+      <DependentUpon>ctrPayRenting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RentingsVehicles\ctrRentingInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RentingsVehicles\ctrRentingInfo.Designer.cs">
+      <DependentUpon>ctrRentingInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RentingsVehicles\FastPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RentingsVehicles\FastPayment.Designer.cs">
+      <DependentUpon>FastPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RentingsVehicles\RentingList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RentingsVehicles\RentingList.Designer.cs">
+      <DependentUpon>RentingList.cs</DependentUpon>
+    </Compile>
     <Compile Include="SystemCustomer\ctrCustomerInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -443,6 +467,18 @@
     </Compile>
     <EmbeddedResource Include="RentingsVehicles\ctrAddNewRenting.resx">
       <DependentUpon>ctrAddNewRenting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RentingsVehicles\ctrPayRenting.resx">
+      <DependentUpon>ctrPayRenting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RentingsVehicles\ctrRentingInfo.resx">
+      <DependentUpon>ctrRentingInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RentingsVehicles\FastPayment.resx">
+      <DependentUpon>FastPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RentingsVehicles\RentingList.resx">
+      <DependentUpon>RentingList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SystemCustomer\ctrCustomerInfo.resx">
       <DependentUpon>ctrCustomerInfo.cs</DependentUpon>
