@@ -1,6 +1,7 @@
 ﻿using LoginSystem;
 using Retaining_Car_Project.Drivers;
 using Retaining_Car_Project.Employees;
+using Retaining_Car_Project.RentingsVehicles;
 using Retaining_Car_Project.SystemCustomer;
 using Retaining_Car_Project.Users;
 using Retaining_Car_Project.Vehciles;
@@ -328,6 +329,12 @@ namespace LoginSystem
         private void addCarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddingNewCarInSystem frm = new AddingNewCarInSystem();
+            frm.ShowDialog();
+        }
+
+        private void rentingListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RentingList frm = new RentingList();
             frm.ShowDialog();
         }
 

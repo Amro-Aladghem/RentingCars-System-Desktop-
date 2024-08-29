@@ -57,13 +57,13 @@ namespace clsBuesnesLayer
         {
 
             this.RentID = RentID;
-            this.SechduleID = SechduleID;
+            this.SechduleID = ScheduleID;
             this.DistanceCovered = DistanceCovered;
             this.InitialMileage = InitialMillage;
             this.FinalMileage = FinalMileage;
             this.ReturnDate = ReturnDate;
             this.IsActive = isActive;
-            this.IsPaid = IsPaid;
+            this.IsPaid = isPaid;
             this.TotalPaidPrice = TotalPaidPrice;
             this.AddionalFees = AdditionalFees;
             this.Note = Note;
@@ -202,7 +202,10 @@ namespace clsBuesnesLayer
         }
 
 
-
+        public static bool MakeIsPaidFalse(int RentID)
+        {
+            return clsRentingData.MakeisPaidFalse(RentID);
+        }
 
 
 

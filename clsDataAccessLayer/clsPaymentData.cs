@@ -33,8 +33,10 @@ namespace clsDataAccessLayer
                 using(SqlConnection connection=new SqlConnection(clsDataAccessSettings.ConnectionString))
                 {
                     connection.Open();
-                    string query = "Insert Into Payments(RentID,DateOfPaid,PaidAmount,ReturnAmount,Note)\r\nvalues \r\n" +
+                    string query = "INsert INto Payments(RentID,DateOfPaid,PaidAmount,ReturnAmount,Note)\r\nvalues\r\n" +
                         "(@RentID,@DateOFPaid,@PaidAmount,@ReturnAmount,@Note);select SCOPE_IDENTITY();";
+
+
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {

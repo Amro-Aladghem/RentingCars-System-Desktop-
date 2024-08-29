@@ -1096,12 +1096,15 @@ namespace clsDataAccessLayer
                         command.Parameters.AddWithValue("@CarName", CarName);
                         command.Parameters.AddWithValue("@CarModel", ModelName);
 
-                        object reader = command.ExecuteScalar();
-                        if(reader!=null && DateTime.TryParse(reader.ToString(),out DateTime value))
+                        object reader = command.ExecuteScalar();    
+                        if(reader!=null && DateTime.TryParse(reader.ToString(),out DateTime value)) 
                         {
-                            ReturnDate = value;
                             isRight = false;
+                            ReturnDate = value;
+
                         }
+
+                     
                     }
 
                 }

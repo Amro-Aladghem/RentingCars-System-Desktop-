@@ -129,8 +129,6 @@
             // gbNewRent
             // 
             this.gbNewRent.BackColor = System.Drawing.Color.White;
-            this.gbNewRent.Controls.Add(this.btnReturnPay);
-            this.gbNewRent.Controls.Add(this.btnPayNow);
             this.gbNewRent.Controls.Add(this.panel1);
             this.gbNewRent.Controls.Add(this.gbDriver);
             this.gbNewRent.Controls.Add(this.cbDriver);
@@ -142,14 +140,15 @@
             this.gbNewRent.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbNewRent.Location = new System.Drawing.Point(18, 153);
             this.gbNewRent.Name = "gbNewRent";
-            this.gbNewRent.Size = new System.Drawing.Size(1028, 863);
+            this.gbNewRent.Size = new System.Drawing.Size(1028, 726);
             this.gbNewRent.TabIndex = 1;
             this.gbNewRent.TabStop = false;
             this.gbNewRent.Text = "New Renting";
             // 
             // btnReturnPay
             // 
-            this.btnReturnPay.Location = new System.Drawing.Point(625, 778);
+            this.btnReturnPay.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.btnReturnPay.Location = new System.Drawing.Point(1077, 17);
             this.btnReturnPay.Name = "btnReturnPay";
             this.btnReturnPay.Size = new System.Drawing.Size(194, 51);
             this.btnReturnPay.TabIndex = 15;
@@ -159,7 +158,8 @@
             // 
             // btnPayNow
             // 
-            this.btnPayNow.Location = new System.Drawing.Point(197, 778);
+            this.btnPayNow.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.btnPayNow.Location = new System.Drawing.Point(1077, 108);
             this.btnPayNow.Name = "btnPayNow";
             this.btnPayNow.Size = new System.Drawing.Size(194, 51);
             this.btnPayNow.TabIndex = 14;
@@ -432,10 +432,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleGreen;
+            this.Controls.Add(this.btnPayNow);
+            this.Controls.Add(this.btnReturnPay);
             this.Controls.Add(this.gbNewRent);
             this.Controls.Add(this.gbCustomer);
             this.Name = "ctrAddNewRenting";
-            this.Size = new System.Drawing.Size(1065, 1048);
+            this.Size = new System.Drawing.Size(1311, 914);
             this.Load += new System.EventHandler(this.ctrAddNewRenting_Load);
             this.gbCustomer.ResumeLayout(false);
             this.gbCustomer.PerformLayout();

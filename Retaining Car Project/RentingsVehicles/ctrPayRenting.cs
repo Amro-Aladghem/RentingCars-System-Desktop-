@@ -25,6 +25,8 @@ namespace Retaining_Car_Project.RentingsVehicles
         decimal DistanceCovered;
         decimal AdditionalFees = 0;
 
+        bool flagFinishCalculate = false;
+
         public event EventHandler OnFinishClick;
 
 
@@ -33,7 +35,7 @@ namespace Retaining_Car_Project.RentingsVehicles
 
         private void ctrPayRenting_Load(object sender, EventArgs e)
         {
-
+            rdRentID.Checked = true;
         }
 
         private void txtFirstName_KeyPress(object sender, KeyPressEventArgs e)
@@ -71,23 +73,36 @@ namespace Retaining_Car_Project.RentingsVehicles
             lbReturnMoney.Text = TotalReturnMoney.ToString() + "jd";
         }
 
+        private void _CheckIFCustomerHasLateFeesAndPerform()
+        {
+            clsScheduling scheduling = clsScheduling.FindSchedulingByID(Renting.SechduleID);
+            decimal LateFeesAmount;
+
+            int DifferenceDay = Convert.ToInt32((dateReturnDate.Value -scheduling.EndAt).Days);
+            lbLateFees.Text = "You must Add Late Fees for " + DifferenceDay.ToString() + " Days!";
+            lbLateFees.Visible = true;
+        }
+
+
 
         private void btnSearchCustomer_Click(object sender, EventArgs e)
         {
             clsRenting renting = clsRenting.FindRentingByCustomerName(txtFirstName.Text, txtLastName.Text);
             if(renting==null)
             {
-                MessageBox.Show("No Renting with this Customer Name,Try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No Active Renting with this Customer Name,Try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             Renting = renting;
             ctrRentingInfo1.GetObjcetAndCreatClass(Renting);
-            gbRentInfo.Enabled = true;
+
             rdRentID.Enabled = false;
             btnSearchCustomer.Enabled = false;
             txtInitialMil.Text = Renting.InitialMileage.ToString();
             CalculateTotalPriceAndReturnMoney();
+            gbReturnInfo.Enabled = true;
+            btnWithoutPay.Enabled = true;
 
 
         }
@@ -105,17 +120,19 @@ namespace Retaining_Car_Project.RentingsVehicles
             clsRenting renting=clsRenting.FindRentingByID(Convert.ToInt32(txtRentID.Text));
             if (renting == null)
             {
-                MessageBox.Show("No Renting with this Renting ID,Try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No Active Renting with this Renting ID,Try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             Renting = renting;
             ctrRentingInfo1.GetObjcetAndCreatClass(Renting);
-            gbRentInfo.Enabled = true;
+
             rdCustomer.Enabled = false;
             btnSeacthRent.Enabled = false;
             txtInitialMil.Text = Renting.InitialMileage.ToString();
             CalculateTotalPriceAndReturnMoney();
+            gbReturnInfo.Enabled = true;
+            btnWithoutPay.Enabled = true;
 
         }
 
@@ -139,6 +156,7 @@ namespace Retaining_Car_Project.RentingsVehicles
                 return;
             }
 
+            TotalPrice = Renting.TotalPrice - Renting.TotalPaidPrice;
 
             DistanceCovered = Convert.ToDecimal(txtFinalMileage.Text) - Renting.InitialMileage;
             lbDistanseCoverd.Text = DistanceCovered.ToString();
@@ -163,14 +181,24 @@ namespace Retaining_Car_Project.RentingsVehicles
                 TotalPrice += FeesOfExceeds+ AdditionalFees - TotalReturnMoney;
                 lbTotalPrice.Text = TotalPrice.ToString();
                 TotalReturnMoney = 0;
+
                 lbReturnMoney.Text = TotalReturnMoney.ToString();
                 AdditionalFees += FeesOfExceeds;
             }
+
+            flagFinishCalculate = true;
+            _CheckIFCustomerHasLateFeesAndPerform();
 
         }
 
         private void txtFinalMileage_Validating(object sender, CancelEventArgs e)
         {
+            if(string.IsNullOrEmpty(txtFinalMileage.Text))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtFinalMileage, "You must Fill it!");
+            }
+            else
             if(Convert.ToDecimal(txtFinalMileage.Text) <=Renting.InitialMileage)
             {
                 e.Cancel = true;
@@ -208,7 +236,14 @@ namespace Retaining_Car_Project.RentingsVehicles
 
         private void btnReturnPay_Click(object sender, EventArgs e)
         {
-            if(Renting.IsPaid)
+            if (flagFinishCalculate == false)
+            {
+                MessageBox.Show("You must calculate before Payment!");
+                return;
+            }
+
+
+            if (Renting.IsPaid)
             {
                 MessageBox.Show("This Person already Paid the renting fees!");
                 return;
@@ -225,16 +260,64 @@ namespace Retaining_Car_Project.RentingsVehicles
             FastPayment frm = new FastPayment(Renting);
             frm.ShowDialog();
 
-            btnPayNow.Enabled = false;
-            btnRentPay.Enabled = false;
+            TotalPrice -= Renting.TotalPrice;
+            lbTotalPrice.Text = TotalPrice.ToString();
 
         }
 
         private void btnPayNow_Click(object sender, EventArgs e)
         {
+            if(flagFinishCalculate==false)
+            {
+                MessageBox.Show("You must calculate before Payment!");
+                return;
+            }
+
+
             if(TotalPrice==0)
             {
                 MessageBox.Show("This Person already paid everything , you can use Finish button");
+                btnFinish.Enabled = true;
+                return;
+            }
+
+
+            if (!UpdateRenting())
+            {
+                MessageBox.Show("Please Try Again !");
+                return;
+            }
+
+
+
+            FastPayment frm = new FastPayment(TotalPrice,Renting);
+            frm.ShowDialog();
+
+            btnFinish.Enabled = true;
+            btnPayNow.Enabled = false;
+            btnRentPay.Enabled = false;
+        }
+
+        private void btnFinish_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Are You Sure to Finish?","Question",MessageBoxButtons.OKCancel,MessageBoxIcon.Question)==DialogResult.Cancel)
+            {
+                return;
+            }
+
+            if (!UpdateRenting())
+            {
+                MessageBox.Show("Please Try Again !");
+                return;
+            }
+            OnFinishClick?.Invoke(null, null);
+        }
+
+        private void btnWithoutPay_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Are You sure to continue without Paying \n the AdditionalFees!","Warnning",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning)==DialogResult.Cancel)
+            {
+                return;
             }
 
             if (!UpdateRenting())
@@ -243,20 +326,22 @@ namespace Retaining_Car_Project.RentingsVehicles
                 return;
             }
 
-            FastPayment frm = new FastPayment(TotalPrice);
-            frm.ShowDialog();
+            if (!clsRenting.MakeIsPaidFalse(Renting.RentID))
+            {
+                MessageBox.Show("Somting Error,The Procees Cancled!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            btnFinish.Enabled = true;
-            btnPayNow.Enabled = false;
-            btnRentPay.Enabled = false;
-            
-
+            MessageBox.Show("The Process has been Done Successfully,You can close this Window!");
 
         }
 
-        private void btnFinish_Click(object sender, EventArgs e)
+        private void txtAdditionalFees_KeyPress(object sender, KeyPressEventArgs e)
         {
-            OnFinishClick(null, null);
+            if(!char.IsDigit(e.KeyChar) && e.KeyChar!='.')
+            {
+                e.Handled = true;
+            }
         }
     }
 }

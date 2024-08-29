@@ -35,9 +35,9 @@ namespace clsDataAccessLayer
                 using(SqlConnection connection =new SqlConnection(clsDataAccessSettings .ConnectionString))
                 {
                     connection.Open();
-                    string query = "select *From Rents where RentID=@RentID";
+                    string query = "select *From Rents where RentID=@RentID And isActive=1";
 
-                    using(SqlCommand command=new SqlCommand(clsDataAccessSettings.ConnectionString))
+                    using(SqlCommand command=new SqlCommand(query,connection))
                     {
                         command.Parameters.AddWithValue("@RentID", RentingID);
 
@@ -50,8 +50,16 @@ namespace clsDataAccessLayer
                                 ScheduleID = (int)reader[1];
                                 DistanceCoverd = (decimal?)reader[2];
                                 InitialMileage = (decimal)reader[3];
-                                FinalMillage = (decimal)reader[4];
-                                ReturnDate=   (DateTime?)reader[5];
+                                FinalMillage = (decimal?)reader[4];
+                                if (reader[5] != System.DBNull.Value)
+                                {
+                                    ReturnDate = (DateTime?)reader[5];
+                                }
+                                else
+                                {
+                                    ReturnDate = null;
+                                }
+
                                 isActive = (bool)reader[6];
                                 isPaid = (bool)reader[7];
                                 TotalPrice = (decimal)reader[8];
@@ -98,7 +106,14 @@ namespace clsDataAccessLayer
                                 DistanceCoverd = (decimal?)reader[2];
                                 InitialMileage = (decimal)reader[3];
                                 FinalMillage = (decimal)reader[4];
-                                ReturnDate = (DateTime?)reader[5];
+                                if (reader[5] != System.DBNull.Value)
+                                {
+                                    ReturnDate = (DateTime?)reader[5];
+                                }
+                                else
+                                {
+                                    ReturnDate = null;
+                                }
                                 isActive = (bool)reader[6];
                                 isPaid = (bool)reader[7];
                                 TotalPrice = (decimal)reader[8];
@@ -190,10 +205,10 @@ namespace clsDataAccessLayer
                         command.Parameters.AddWithValue("@isActive", isActive);
                         command.Parameters.AddWithValue("@isPaid", isPaid);
                         command.Parameters.AddWithValue("@TotalPrice", TotalPrice);
-                        command.Parameters.AddWithValue("@Note", Note);
-                        command.Parameters.AddWithValue("@TotalPaidPrice", TotalPrice);
+                        AddValueToCommandParam(command, "@Note", Note);
+                        command.Parameters.AddWithValue("@TotalPaidPrice", TotalPaidPrice);
 
-                        object reader = command.ExecuteNonQuery();
+                        object reader = command.ExecuteScalar();
                         if(reader!=null && int.TryParse(reader.ToString(),out int value))
                         {
                             NewID = value;
@@ -259,20 +274,23 @@ namespace clsDataAccessLayer
                 using(SqlConnection connection=new SqlConnection(clsDataAccessSettings.ConnectionString))
                 {
                     connection.Open();
-                 
-                    using(SqlCommand command=new SqlCommand("ChangeTheTotalPrice",connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@ScheduleID", ScheduleID);
-                        command.Parameters.AddWithValue("@NewTotalPrice", NewTotalPrice);
-                        command.Parameters.AddWithValue("@PaidAmount",PaidAmount);
+                    string query = "Update Rents\r\nset TotalPrice=@TotalPrice, TotalPaidPrice=@TotalPaidPrice where ScheduleID=@ScheduleID";
 
-                        int rowaffected = command.ExecuteNonQuery();
+                    using(SqlCommand command=new SqlCommand(query,connection))
+                    {
+                        command.Parameters.AddWithValue("@TotalPrice", NewTotalPrice);
+                        command.Parameters.AddWithValue("@TotalPaidPrice", PaidAmount);
+                        command.Parameters.AddWithValue("@ScheduleID", ScheduleID);
+
+                        int rowaffected = command.ExecuteNonQuery();    
                         if(rowaffected>0)
                         {
                             isDone = true;
                         }
                     }
+
+
+
                 }
             }
             catch
@@ -383,6 +401,38 @@ namespace clsDataAccessLayer
         }
 
 
+
+
+        public static bool MakeisPaidFalse(int RentID)
+        {
+            bool isDone = false;
+
+            try
+            {
+                using(SqlConnection connection=new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+                    string query = " Update Rents \r\n set isPaid=0 where RentID=@RentID";
+
+                    using(SqlCommand command =new SqlCommand(query,connection))
+                    {
+                        command.Parameters.AddWithValue("@RentID", RentID);
+
+                        int rowaffected = command.ExecuteNonQuery();
+                        if(rowaffected>0)
+                        {
+                            isDone = true;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                //
+            }
+
+            return isDone;
+        }
 
 
 

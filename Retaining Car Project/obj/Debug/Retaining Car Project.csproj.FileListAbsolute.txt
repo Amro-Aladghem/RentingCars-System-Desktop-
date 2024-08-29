@@ -71,3 +71,10 @@ C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Ca
 C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Car_Project.RentingsVehicles.FastPayment.resources
 C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Car_Project.RentingsVehicles.ctrPayRenting.resources
 C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Car_Project.RentingsVehicles.ctrRentingInfo.resources
+C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Car_Project.RentingsVehicles.AddNewRenting.resources
+C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Car_Project.RentingsVehicles.PayRenting.resources
+C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Car_Project.RentingsVehicles.RentingList.resources
+C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Car_Project.RentingsVehicles.SchedulesList.resources
+C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Car_Project.RentingsVehicles.RentingInfo.resources
+C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Car_Project.RentingsVehicles.EditingRent.resources
+C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Car_Project.RentingsVehicles.EditingOnRenting.resources

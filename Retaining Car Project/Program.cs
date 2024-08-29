@@ -1,4 +1,5 @@
 ﻿using Retaining_Car_Project;
+using Retaining_Car_Project.RentingsVehicles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace LoginSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TestForm2());
+            Application.Run(new Login());
         }
     }
 }

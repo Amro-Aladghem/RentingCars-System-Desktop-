@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FastPayment));
             this.label1 = new System.Windows.Forms.Label();
-            this.txtPaidAmount = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lbReturn = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -39,6 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtNote = new System.Windows.Forms.TextBox();
             this.btnOK = new System.Windows.Forms.Button();
+            this.txtPaidAmount = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -51,15 +51,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Paid Amount:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // txtPaidAmount
-            // 
-            this.txtPaidAmount.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.txtPaidAmount.Location = new System.Drawing.Point(375, 57);
-            this.txtPaidAmount.Mask = "0000.000";
-            this.txtPaidAmount.Name = "txtPaidAmount";
-            this.txtPaidAmount.Size = new System.Drawing.Size(302, 44);
-            this.txtPaidAmount.TabIndex = 1;
             // 
             // label2
             // 
@@ -145,6 +136,16 @@
             this.btnOK.UseVisualStyleBackColor = false;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
+            // txtPaidAmount
+            // 
+            this.txtPaidAmount.Font = new System.Drawing.Font("Tahoma", 20F);
+            this.txtPaidAmount.Location = new System.Drawing.Point(311, 53);
+            this.txtPaidAmount.Multiline = true;
+            this.txtPaidAmount.Name = "txtPaidAmount";
+            this.txtPaidAmount.Size = new System.Drawing.Size(331, 48);
+            this.txtPaidAmount.TabIndex = 10;
+            this.txtPaidAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPaidAmount_KeyPress);
+            // 
             // FastPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -152,6 +153,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(947, 416);
+            this.Controls.Add(this.txtPaidAmount);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.txtNote);
             this.Controls.Add(this.label3);
@@ -160,7 +162,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lbReturn);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtPaidAmount);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -176,7 +177,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox txtPaidAmount;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbReturn;
         private System.Windows.Forms.Label label4;
@@ -185,5 +185,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNote;
         private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.TextBox txtPaidAmount;
     }
 }

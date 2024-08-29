@@ -277,7 +277,7 @@ namespace clsBuesnesLayer
 
         public static decimal GetPriceForRentingVehciel(int VehcileID)
         {
-            return clsVehicles.GetPriceForRentingVehciel(VehcileID);
+            return clsVehiclesData.GetPriceForRentingCarByID(VehcileID);
         }
 
 

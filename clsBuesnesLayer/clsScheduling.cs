@@ -106,8 +106,8 @@ namespace clsBuesnesLayer
 
         private bool _AddNewScheduling()
         {
-            this.VehicleID = clsSchedulingData.AddNewSchedule(this.CustomerID, this.VehicleID, this.DateOfSechedule, this.NumberOfDays, this.StartFrom, this.EndAt, this.Status, this.DriverID);
-            return VehicleID != -1;
+            this.ScheduleID = clsSchedulingData.AddNewSchedule(this.CustomerID, this.VehicleID, this.DateOfSechedule, this.NumberOfDays, this.StartFrom, this.EndAt, this.Status, this.DriverID);
+            return ScheduleID != -1;
         }
 
         private bool _UpdateScheduling()

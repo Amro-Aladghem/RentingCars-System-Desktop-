@@ -92,7 +92,14 @@ namespace clsDataAccessLayer
                                 StartDate = (DateTime)reader[5];
                                 EndDate = (DateTime)reader[6];
                                 StatusID = (int)reader[7];
-                                DriverID = (int)reader[8];
+                                if (reader[8]==System.DBNull.Value)
+                                {
+                                    DriverID = null;
+                                }
+                                else
+                                {
+                                    DriverID = (int?)reader[8];
+                                }
                             }
 
                         }
@@ -139,7 +146,14 @@ namespace clsDataAccessLayer
                                 StartDate = (DateTime)reader[5];
                                 EndDate = (DateTime)reader[6];
                                 StatusID = (int)reader[7];
-                                DriverID = (int)reader[8];
+                                if (reader[8] == System.DBNull.Value)
+                                {
+                                    DriverID = null;
+                                }
+                                else
+                                {
+                                    DriverID = (int?)reader[8];
+                                }
                             }
 
 
@@ -189,7 +203,14 @@ namespace clsDataAccessLayer
                                 StartDate = (DateTime)reader[5];
                                 EndDate = (DateTime)reader[6];
                                 StatusID = (int)reader[7];
-                                DriverID = (int)reader[8];
+                                if (reader[8] == System.DBNull.Value)
+                                {
+                                    DriverID = null;
+                                }
+                                else
+                                {
+                                    DriverID = (int?)reader[8];
+                                }
 
                             }
                         }
@@ -415,6 +436,9 @@ namespace clsDataAccessLayer
 
             return isRight;
         }
+
+
+
 
 
 

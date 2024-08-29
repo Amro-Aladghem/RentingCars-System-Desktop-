@@ -164,6 +164,12 @@
     <Compile Include="LoginSystem\LoginRegistry.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RentingsVehicles\AddNewRenting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RentingsVehicles\AddNewRenting.Designer.cs">
+      <DependentUpon>AddNewRenting.cs</DependentUpon>
+    </Compile>
     <Compile Include="RentingsVehicles\ctrAddNewRenting.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -182,17 +188,47 @@
     <Compile Include="RentingsVehicles\ctrRentingInfo.Designer.cs">
       <DependentUpon>ctrRentingInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="RentingsVehicles\EditingOnRenting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RentingsVehicles\EditingOnRenting.Designer.cs">
+      <DependentUpon>EditingOnRenting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RentingsVehicles\EditingRent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RentingsVehicles\EditingRent.Designer.cs">
+      <DependentUpon>EditingRent.cs</DependentUpon>
+    </Compile>
     <Compile Include="RentingsVehicles\FastPayment.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RentingsVehicles\FastPayment.Designer.cs">
       <DependentUpon>FastPayment.cs</DependentUpon>
     </Compile>
+    <Compile Include="RentingsVehicles\PayRenting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RentingsVehicles\PayRenting.Designer.cs">
+      <DependentUpon>PayRenting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RentingsVehicles\RentingInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RentingsVehicles\RentingInfo.Designer.cs">
+      <DependentUpon>RentingInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="RentingsVehicles\RentingList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RentingsVehicles\RentingList.Designer.cs">
       <DependentUpon>RentingList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RentingsVehicles\SchedulesList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RentingsVehicles\SchedulesList.Designer.cs">
+      <DependentUpon>SchedulesList.cs</DependentUpon>
     </Compile>
     <Compile Include="SystemCustomer\ctrCustomerInfo.cs">
       <SubType>UserControl</SubType>
@@ -465,6 +501,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RentingsVehicles\AddNewRenting.resx">
+      <DependentUpon>AddNewRenting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RentingsVehicles\ctrAddNewRenting.resx">
       <DependentUpon>ctrAddNewRenting.cs</DependentUpon>
     </EmbeddedResource>
@@ -474,11 +513,26 @@
     <EmbeddedResource Include="RentingsVehicles\ctrRentingInfo.resx">
       <DependentUpon>ctrRentingInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RentingsVehicles\EditingOnRenting.resx">
+      <DependentUpon>EditingOnRenting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RentingsVehicles\EditingRent.resx">
+      <DependentUpon>EditingRent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RentingsVehicles\FastPayment.resx">
       <DependentUpon>FastPayment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RentingsVehicles\PayRenting.resx">
+      <DependentUpon>PayRenting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RentingsVehicles\RentingInfo.resx">
+      <DependentUpon>RentingInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RentingsVehicles\RentingList.resx">
       <DependentUpon>RentingList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RentingsVehicles\SchedulesList.resx">
+      <DependentUpon>SchedulesList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SystemCustomer\ctrCustomerInfo.resx">
       <DependentUpon>ctrCustomerInfo.cs</DependentUpon>

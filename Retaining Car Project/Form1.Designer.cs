@@ -82,6 +82,7 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rentingListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -265,7 +266,7 @@
             // 
             this.addUpdateToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addUpdateToolStripMenuItem.Image")));
             this.addUpdateToolStripMenuItem.Name = "addUpdateToolStripMenuItem";
-            this.addUpdateToolStripMenuItem.Size = new System.Drawing.Size(270, 46);
+            this.addUpdateToolStripMenuItem.Size = new System.Drawing.Size(256, 46);
             this.addUpdateToolStripMenuItem.Text = "Add/Update ";
             this.addUpdateToolStripMenuItem.Click += new System.EventHandler(this.addUpdateToolStripMenuItem_Click);
             // 
@@ -273,7 +274,7 @@
             // 
             this.deleteVehicleToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteVehicleToolStripMenuItem.Image")));
             this.deleteVehicleToolStripMenuItem.Name = "deleteVehicleToolStripMenuItem";
-            this.deleteVehicleToolStripMenuItem.Size = new System.Drawing.Size(270, 46);
+            this.deleteVehicleToolStripMenuItem.Size = new System.Drawing.Size(256, 46);
             this.deleteVehicleToolStripMenuItem.Text = "Delete Vehicle";
             this.deleteVehicleToolStripMenuItem.Click += new System.EventHandler(this.deleteVehicleToolStripMenuItem_Click);
             // 
@@ -281,7 +282,7 @@
             // 
             this.findVehicleToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("findVehicleToolStripMenuItem.Image")));
             this.findVehicleToolStripMenuItem.Name = "findVehicleToolStripMenuItem";
-            this.findVehicleToolStripMenuItem.Size = new System.Drawing.Size(270, 46);
+            this.findVehicleToolStripMenuItem.Size = new System.Drawing.Size(256, 46);
             this.findVehicleToolStripMenuItem.Text = "Find Vehicle";
             this.findVehicleToolStripMenuItem.Click += new System.EventHandler(this.findVehicleToolStripMenuItem_Click);
             // 
@@ -300,7 +301,7 @@
             // 
             this.carsListToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("carsListToolStripMenuItem1.Image")));
             this.carsListToolStripMenuItem1.Name = "carsListToolStripMenuItem1";
-            this.carsListToolStripMenuItem1.Size = new System.Drawing.Size(270, 46);
+            this.carsListToolStripMenuItem1.Size = new System.Drawing.Size(240, 46);
             this.carsListToolStripMenuItem1.Text = "Cars List";
             this.carsListToolStripMenuItem1.Click += new System.EventHandler(this.carsListToolStripMenuItem1_Click);
             // 
@@ -308,12 +309,14 @@
             // 
             this.addCarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addCarToolStripMenuItem.Image")));
             this.addCarToolStripMenuItem.Name = "addCarToolStripMenuItem";
-            this.addCarToolStripMenuItem.Size = new System.Drawing.Size(270, 46);
+            this.addCarToolStripMenuItem.Size = new System.Drawing.Size(240, 46);
             this.addCarToolStripMenuItem.Text = "Add New Car";
             this.addCarToolStripMenuItem.Click += new System.EventHandler(this.addCarToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
+            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rentingListToolStripMenuItem});
             this.toolStripMenuItem2.Font = new System.Drawing.Font("Teko SemiBold", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem2.Image")));
             this.toolStripMenuItem2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -627,6 +630,14 @@
             this.userInfoToolStripMenuItem.Text = "user Info";
             this.userInfoToolStripMenuItem.Click += new System.EventHandler(this.userInfoToolStripMenuItem_Click);
             // 
+            // rentingListToolStripMenuItem
+            // 
+            this.rentingListToolStripMenuItem.Font = new System.Drawing.Font("Teko SemiBold", 13F, System.Drawing.FontStyle.Bold);
+            this.rentingListToolStripMenuItem.Name = "rentingListToolStripMenuItem";
+            this.rentingListToolStripMenuItem.Size = new System.Drawing.Size(270, 46);
+            this.rentingListToolStripMenuItem.Text = "Renting List";
+            this.rentingListToolStripMenuItem.Click += new System.EventHandler(this.rentingListToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -711,6 +722,7 @@
         private System.Windows.Forms.ToolStripMenuItem carsListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem carsListToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem addCarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rentingListToolStripMenuItem;
     }
 }
 

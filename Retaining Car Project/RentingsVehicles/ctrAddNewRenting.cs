@@ -29,8 +29,10 @@ namespace Retaining_Car_Project.RentingsVehicles
         static decimal TotalPrice;
         static decimal TotalPaidAmount;
         static decimal PricePerDay;
-        clsScheduling NewSchedule;
-        clsRenting NewRenting;
+        clsScheduling NewSchedule = new clsScheduling();
+        clsRenting NewRenting = new clsRenting();
+
+        bool flagReturnPayDone = false;
 
         public event EventHandler OnEndOfRenting;
 
@@ -74,6 +76,8 @@ namespace Retaining_Car_Project.RentingsVehicles
 
         private void _PerFormCarModelsBox(DataTable dt)
         {
+            cbxCarModel.Items.Clear();
+
             foreach (DataRow row in dt.Rows)
             {
                 cbxCarModel.Items.Add(row["ModelName"]);
@@ -136,6 +140,7 @@ namespace Retaining_Car_Project.RentingsVehicles
             }
 
             gbNewRent.Enabled = true;
+            btnSearch.Enabled = false;
 
         }
 
@@ -221,9 +226,6 @@ namespace Retaining_Car_Project.RentingsVehicles
             DriverID = clsDrivers.GetDriverIDByFullName(Parts[0], Parts[1]);
             lbDriverInfo.Visible = true;
 
-
-
-
         }
 
         private void lbDriverInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -262,6 +264,8 @@ namespace Retaining_Car_Project.RentingsVehicles
             NewRenting.TotalPaidPrice = 0;
         }
 
+     
+
         private bool MakingNewRenting()
         {
             LoadDataToScheduleObject();
@@ -271,6 +275,8 @@ namespace Retaining_Car_Project.RentingsVehicles
                 MessageBox.Show("There is Somting Error,The Process Canceled!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+
+            LoadDataToRentingObject();
 
             if(!NewRenting.Save())
             {
@@ -299,17 +305,22 @@ namespace Retaining_Car_Project.RentingsVehicles
             }
 
             MessageBox.Show("The Renting has been succesfully Saved!");
-            OnEndOfRenting?.Invoke(null, null);
+
+            flagReturnPayDone = true;
 
 
         }
 
         private void btnPayNow_Click(object sender, EventArgs e)
         {
-            if (!MakingNewRenting())
+
+            if(flagReturnPayDone==false)
             {
-                MessageBox.Show("Please Try again!");
-                return;
+                if (!MakingNewRenting())
+                {
+                    MessageBox.Show("Please Try again!");
+                    return;
+                }
             }
 
             FastPayment frm = new FastPayment(NewRenting);

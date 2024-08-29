@@ -17,25 +17,30 @@ namespace Retaining_Car_Project.RentingsVehicles
         {
             InitializeComponent();
             this.Renting = Renting;
+            TotalAmount = Renting.TotalPrice;
         }
 
-        public FastPayment(decimal TotalAmount)
+        public FastPayment(decimal TotalAmount,clsRenting Renting)
         {
             InitializeComponent();
             this.TotalAmount= TotalAmount;
+            this.Renting = Renting;
         }
 
 
         clsRenting Renting;
 
-        clsPayment NewPayment;
+        clsPayment NewPayment = new clsPayment();
 
         decimal  ReturnAmount;
 
         decimal TotalAmount;
         private void FastPayment_Load(object sender, EventArgs e)
         {
-            lbTotalPrice.Text=Renting.TotalPrice.ToString()+"jd";
+            
+    
+          lbTotalPrice.Text = TotalAmount.ToString() + "jd";
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -45,20 +50,20 @@ namespace Retaining_Car_Project.RentingsVehicles
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if(Convert.ToDecimal(txtPaidAmount.Text)<Renting.TotalPrice)
+            if(Convert.ToDecimal(txtPaidAmount.Text)<TotalAmount)
             {
                 MessageBox.Show("The Paid Amount less than TotalPrice!");
                 return;
             }
 
-            decimal Different = Convert.ToDecimal(txtPaidAmount.Text) - Renting.TotalPrice;
+            decimal Different = Convert.ToDecimal(txtPaidAmount.Text) -TotalAmount;
             ReturnAmount = Different;
             lbReturn.Text = Different.ToString() + "jd";
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (Convert.ToDecimal(txtPaidAmount.Text) < Renting.TotalPrice)
+            if (Convert.ToDecimal(txtPaidAmount.Text) < TotalAmount)
             {
                 MessageBox.Show("The Paid Amount less than TotalPrice!");
                 return;
@@ -78,6 +83,14 @@ namespace Retaining_Car_Project.RentingsVehicles
 
             MessageBox.Show("The Process has done Successfully!");
             this.Close();
+        }
+
+        private void txtPaidAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsDigit(e.KeyChar) && e.KeyChar!='.')
+            {
+                e.Handled = true;
+            }
         }
     }
 }
