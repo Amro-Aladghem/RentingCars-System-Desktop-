@@ -52,6 +52,7 @@
     <Compile Include="clsUsersData.cs" />
     <Compile Include="clsVehiclesData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemRulesData.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SecurityLayer\SecurityLayer.csproj">

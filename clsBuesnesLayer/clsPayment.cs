@@ -2,6 +2,7 @@
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +33,17 @@ namespace clsBuesnesLayer
             Mode = eMode.AddNew;
         }
 
+        public clsPayment(int PaymentID,int RentID,DateTime DateOfPaid,decimal PaidAmount,decimal ReturnAmount,string Note)
+        {
+            this.PaymentID = PaymentID;
+            this.RentID = RentID;
+            this.DateOfPaid = DateOfPaid;
+            this.PaidAmount = PaidAmount;
+            this.ReturnAmount = ReturnAmount;
+            this.Note = Note;
+
+            Mode = eMode.Update;
+        }
 
         private bool _AddNewPayment()
         {
@@ -60,7 +72,30 @@ namespace clsBuesnesLayer
             }
         }
 
+        public  static clsPayment FindPaymentByRentID(int RentID)
+        {
+            int PaymentID = -1; string Note= null;
+            DateTime DateOfPaid= DateTime.MinValue;decimal PaidAmount = 0, ReturnAmount = 0;
 
+            if (clsPaymentData.GetFullRecordByRentID(ref PaymentID, RentID, ref DateOfPaid, ref PaidAmount, ref ReturnAmount, ref Note))
+            {
+               return new clsPayment(PaymentID,RentID,DateOfPaid,PaidAmount,ReturnAmount,Note);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public bool DeletePaymentRecord(int PaymentID)
+        {
+            return clsPaymentData.DeletePaymentRecord(PaymentID);
+        }
+
+        public static DataTable GetAllPaymentsRecords()
+        {
+            return clsPaymentData.GetAllPaymentRecords();
+        }
 
 
 

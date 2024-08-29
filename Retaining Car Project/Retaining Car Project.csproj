@@ -162,6 +162,48 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginSystem\LoginRegistry.cs" />
+    <Compile Include="Payments\ctrMakeNewPayment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Payments\ctrMakeNewPayment.Designer.cs">
+      <DependentUpon>ctrMakeNewPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payments\ctrPaymentInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Payments\ctrPaymentInfo.Designer.cs">
+      <DependentUpon>ctrPaymentInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payments\ctrPaymentInfoWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Payments\ctrPaymentInfoWithFilter.Designer.cs">
+      <DependentUpon>ctrPaymentInfoWithFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payments\FindPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payments\FindPayment.Designer.cs">
+      <DependentUpon>FindPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payments\MakeNewPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payments\MakeNewPayment.Designer.cs">
+      <DependentUpon>MakeNewPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payments\PaymentInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payments\PaymentInfo.Designer.cs">
+      <DependentUpon>PaymentInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payments\PaymentsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payments\PaymentsList.Designer.cs">
+      <DependentUpon>PaymentsList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RentingsVehicles\AddNewRenting.cs">
@@ -491,6 +533,27 @@
     <EmbeddedResource Include="LoginSystem\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Payments\ctrMakeNewPayment.resx">
+      <DependentUpon>ctrMakeNewPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payments\ctrPaymentInfo.resx">
+      <DependentUpon>ctrPaymentInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payments\ctrPaymentInfoWithFilter.resx">
+      <DependentUpon>ctrPaymentInfoWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payments\FindPayment.resx">
+      <DependentUpon>FindPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payments\MakeNewPayment.resx">
+      <DependentUpon>MakeNewPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payments\PaymentInfo.resx">
+      <DependentUpon>PaymentInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payments\PaymentsList.resx">
+      <DependentUpon>PaymentsList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -649,7 +712,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="SystemRules\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\clsBuesnesLayer\clsBuesnesLayer.csproj">
       <Project>{64fcb12a-04b7-48bb-a559-6e6b2118372b}</Project>

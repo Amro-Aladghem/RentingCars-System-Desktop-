@@ -80,6 +80,60 @@ namespace clsDataAccessLayer
             return isFonud;
         }
 
+        public static bool GetFullRecordByIDNotActive(int RentingID, ref int ScheduleID, ref decimal? DistanceCoverd, ref decimal InitialMileage, ref decimal? FinalMillage, ref DateTime? ReturnDate, ref bool isActive, ref bool isPaid, ref decimal TotalPrice, ref decimal AdditionalFees, ref string Note, ref decimal TotalPaidPrice)
+        {
+            bool isFonud = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+                    string query = "select *From Rents where RentID=@RentID And isActive=0";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@RentID", RentingID);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                isFonud = true;
+
+                                ScheduleID = (int)reader[1];
+                                DistanceCoverd = (decimal?)reader[2];
+                                InitialMileage = (decimal)reader[3];
+                                FinalMillage = (decimal?)reader[4];
+                                if (reader[5] != System.DBNull.Value)
+                                {
+                                    ReturnDate = (DateTime?)reader[5];
+                                }
+                                else
+                                {
+                                    ReturnDate = null;
+                                }
+
+                                isActive = (bool)reader[6];
+                                isPaid = (bool)reader[7];
+                                TotalPrice = (decimal)reader[8];
+                                AdditionalFees = (decimal)reader[9];
+                                Note = reader[10]?.ToString();
+                                TotalPaidPrice = (decimal)reader[11];
+
+                            }
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                //
+            }
+
+            return isFonud;
+        }
+
         public static bool GetFullRecordByCustomerName(string FirstName,string LastName, ref int RentingID, ref int ScheduleID, ref decimal? DistanceCoverd, ref decimal InitialMileage, ref decimal? FinalMillage, ref DateTime? ReturnDate, ref bool isActive, ref bool isPaid, ref decimal TotalPrice, ref decimal AdditionalFees, ref string Note, ref decimal TotalPaidPrice)
         {
             bool isFonud = false;
@@ -99,6 +153,60 @@ namespace clsDataAccessLayer
                         using(SqlDataReader reader=command.ExecuteReader())
                         {
                             if(reader.Read())
+                            {
+                                isFonud = true;
+
+                                ScheduleID = (int)reader[1];
+                                DistanceCoverd = (decimal?)reader[2];
+                                InitialMileage = (decimal)reader[3];
+                                FinalMillage = (decimal)reader[4];
+                                if (reader[5] != System.DBNull.Value)
+                                {
+                                    ReturnDate = (DateTime?)reader[5];
+                                }
+                                else
+                                {
+                                    ReturnDate = null;
+                                }
+                                isActive = (bool)reader[6];
+                                isPaid = (bool)reader[7];
+                                TotalPrice = (decimal)reader[8];
+                                AdditionalFees = (decimal)reader[9];
+                                Note = reader[10]?.ToString();
+                                TotalPaidPrice = (decimal)reader[11];
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch
+            {
+                //
+            }
+
+            return isFonud;
+        }
+
+        public static bool GetFullRecordByCustomerNameNotActive(string FirstName, string LastName, ref int RentingID, ref int ScheduleID, ref decimal? DistanceCoverd, ref decimal InitialMileage, ref decimal? FinalMillage, ref DateTime? ReturnDate, ref bool isActive, ref bool isPaid, ref decimal TotalPrice, ref decimal AdditionalFees, ref string Note, ref decimal TotalPaidPrice)
+        {
+            bool isFonud = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SP_GetNotActiveRentingByCustomerName", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@FirstName", FirstName);
+                        command.Parameters.AddWithValue("@LastName", LastName);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
                             {
                                 isFonud = true;
 

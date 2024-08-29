@@ -89,6 +89,22 @@ namespace clsBuesnesLayer
             }
         }
 
+        public static clsRenting FindRentingByIDNotActive(int RentID)
+        {
+            int SechduleID = 0; decimal? DistanceCovered = null, FinalMilleage = null; decimal InitialMileage = 0, TotalPrice = 0, AdditionalFees = 0, TotalPaidPrice = 0;
+            DateTime? ReturnDate = null; bool isActive = false, isPaid = false; string Note = null;
+
+            if (clsRentingData.GetFullRecordByIDNotActive(RentID, ref SechduleID, ref DistanceCovered, ref InitialMileage, ref FinalMilleage, ref ReturnDate, ref isActive, ref isPaid, ref TotalPrice, ref AdditionalFees, ref Note, ref TotalPaidPrice))
+            {
+                return new clsRenting(RentID, SechduleID, DistanceCovered, InitialMileage, FinalMilleage, ReturnDate, isActive, isPaid, TotalPrice, AdditionalFees, Note, TotalPaidPrice);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
         public static clsRenting FindRentingByCustomerName(string FirstName,string LastName)
         {
             int SechduleID = 0,RentID=0; decimal? DistanceCovered = null, FinalMilleage = null; decimal InitialMileage = 0, TotalPrice = 0, AdditionalFees = 0, TotalPaidPrice = 0;
@@ -103,6 +119,22 @@ namespace clsBuesnesLayer
                 return null;
             }
         }
+
+        public static clsRenting FindRentingByCustomerNameNotActive(string FirstName, string LastName)
+        {
+            int SechduleID = 0, RentID = 0; decimal? DistanceCovered = null, FinalMilleage = null; decimal InitialMileage = 0, TotalPrice = 0, AdditionalFees = 0, TotalPaidPrice = 0;
+            DateTime? ReturnDate = null; bool isActive = false, isPaid = false; string Note = null;
+
+            if (clsRentingData.GetFullRecordByCustomerNameNotActive(FirstName, LastName, ref RentID, ref SechduleID, ref DistanceCovered, ref InitialMileage, ref FinalMilleage, ref ReturnDate, ref isActive, ref isPaid, ref TotalPrice, ref AdditionalFees, ref Note, ref TotalPaidPrice))
+            {
+                return new clsRenting(RentID, SechduleID, DistanceCovered, InitialMileage, FinalMilleage, ReturnDate, isActive, isPaid, TotalPrice, AdditionalFees, Note, TotalPaidPrice);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
 
         public static clsRenting FindRentingByCustomerName(string CarName,string CarModel,string FirstName, string LastName)
         {

@@ -1,6 +1,7 @@
 ﻿using LoginSystem;
 using Retaining_Car_Project.Drivers;
 using Retaining_Car_Project.Employees;
+using Retaining_Car_Project.Payments;
 using Retaining_Car_Project.RentingsVehicles;
 using Retaining_Car_Project.SystemCustomer;
 using Retaining_Car_Project.Users;
@@ -335,6 +336,30 @@ namespace LoginSystem
         private void rentingListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RentingList frm = new RentingList();
+            frm.ShowDialog();
+        }
+
+        private void makeNewPaymentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MakeNewPayment frm =new MakeNewPayment();
+            frm.ShowDialog();
+        }
+
+        private void paymentsListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PaymentsList frm = new PaymentsList();
+            frm.ShowDialog();
+        }
+
+        private void findPaymentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FindPayment frm = new FindPayment();
+            frm.ShowDialog();
+        }
+
+        private void payRentingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PayRenting frm = new PayRenting();
             frm.ShowDialog();
         }
 

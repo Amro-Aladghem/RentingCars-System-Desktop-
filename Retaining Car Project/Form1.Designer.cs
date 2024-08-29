@@ -50,7 +50,11 @@
             this.carsListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.addCarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.rentingListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.paymentsListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.makeNewPaymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.findPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.Employeetoolmenustrip = new System.Windows.Forms.ToolStripMenuItem();
             this.employeesListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,7 +86,13 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rentingListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.payRentingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addChangeRentingPriceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vehcileRentingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.driverRentingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vehcilesRentingPriceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.staticRulesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.systemUserPaperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -324,8 +334,21 @@
             this.toolStripMenuItem2.Size = new System.Drawing.Size(300, 85);
             this.toolStripMenuItem2.Text = "Retain";
             // 
+            // rentingListToolStripMenuItem
+            // 
+            this.rentingListToolStripMenuItem.Font = new System.Drawing.Font("Teko SemiBold", 13F, System.Drawing.FontStyle.Bold);
+            this.rentingListToolStripMenuItem.Name = "rentingListToolStripMenuItem";
+            this.rentingListToolStripMenuItem.Size = new System.Drawing.Size(249, 46);
+            this.rentingListToolStripMenuItem.Text = "Renting List";
+            this.rentingListToolStripMenuItem.Click += new System.EventHandler(this.rentingListToolStripMenuItem_Click);
+            // 
             // toolStripMenuItem3
             // 
+            this.toolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.paymentsListToolStripMenuItem,
+            this.makeNewPaymentsToolStripMenuItem,
+            this.findPaymentToolStripMenuItem,
+            this.payRentingToolStripMenuItem});
             this.toolStripMenuItem3.Font = new System.Drawing.Font("Teko SemiBold", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem3.Image")));
             this.toolStripMenuItem3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -333,8 +356,40 @@
             this.toolStripMenuItem3.Size = new System.Drawing.Size(300, 85);
             this.toolStripMenuItem3.Text = "Payments";
             // 
+            // paymentsListToolStripMenuItem
+            // 
+            this.paymentsListToolStripMenuItem.Font = new System.Drawing.Font("Teko SemiBold", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paymentsListToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("paymentsListToolStripMenuItem.Image")));
+            this.paymentsListToolStripMenuItem.Name = "paymentsListToolStripMenuItem";
+            this.paymentsListToolStripMenuItem.Size = new System.Drawing.Size(331, 46);
+            this.paymentsListToolStripMenuItem.Text = "Payments List";
+            this.paymentsListToolStripMenuItem.Click += new System.EventHandler(this.paymentsListToolStripMenuItem_Click);
+            // 
+            // makeNewPaymentsToolStripMenuItem
+            // 
+            this.makeNewPaymentsToolStripMenuItem.Font = new System.Drawing.Font("Teko SemiBold", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.makeNewPaymentsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("makeNewPaymentsToolStripMenuItem.Image")));
+            this.makeNewPaymentsToolStripMenuItem.Name = "makeNewPaymentsToolStripMenuItem";
+            this.makeNewPaymentsToolStripMenuItem.Size = new System.Drawing.Size(331, 46);
+            this.makeNewPaymentsToolStripMenuItem.Text = "Make New Payments";
+            this.makeNewPaymentsToolStripMenuItem.Click += new System.EventHandler(this.makeNewPaymentsToolStripMenuItem_Click);
+            // 
+            // findPaymentToolStripMenuItem
+            // 
+            this.findPaymentToolStripMenuItem.Font = new System.Drawing.Font("Teko SemiBold", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.findPaymentToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("findPaymentToolStripMenuItem.Image")));
+            this.findPaymentToolStripMenuItem.Name = "findPaymentToolStripMenuItem";
+            this.findPaymentToolStripMenuItem.Size = new System.Drawing.Size(331, 46);
+            this.findPaymentToolStripMenuItem.Text = "Find Payment";
+            this.findPaymentToolStripMenuItem.Click += new System.EventHandler(this.findPaymentToolStripMenuItem_Click);
+            // 
             // toolStripMenuItem4
             // 
+            this.toolStripMenuItem4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addChangeRentingPriceToolStripMenuItem,
+            this.vehcilesRentingPriceToolStripMenuItem,
+            this.staticRulesToolStripMenuItem,
+            this.systemUserPaperToolStripMenuItem});
             this.toolStripMenuItem4.Font = new System.Drawing.Font("Teko SemiBold", 27F, System.Drawing.FontStyle.Bold);
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             this.toolStripMenuItem4.Size = new System.Drawing.Size(300, 82);
@@ -630,13 +685,61 @@
             this.userInfoToolStripMenuItem.Text = "user Info";
             this.userInfoToolStripMenuItem.Click += new System.EventHandler(this.userInfoToolStripMenuItem_Click);
             // 
-            // rentingListToolStripMenuItem
+            // payRentingToolStripMenuItem
             // 
-            this.rentingListToolStripMenuItem.Font = new System.Drawing.Font("Teko SemiBold", 13F, System.Drawing.FontStyle.Bold);
-            this.rentingListToolStripMenuItem.Name = "rentingListToolStripMenuItem";
-            this.rentingListToolStripMenuItem.Size = new System.Drawing.Size(270, 46);
-            this.rentingListToolStripMenuItem.Text = "Renting List";
-            this.rentingListToolStripMenuItem.Click += new System.EventHandler(this.rentingListToolStripMenuItem_Click);
+            this.payRentingToolStripMenuItem.Font = new System.Drawing.Font("Teko SemiBold", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.payRentingToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("payRentingToolStripMenuItem.Image")));
+            this.payRentingToolStripMenuItem.Name = "payRentingToolStripMenuItem";
+            this.payRentingToolStripMenuItem.Size = new System.Drawing.Size(331, 46);
+            this.payRentingToolStripMenuItem.Text = "Pay Renting";
+            this.payRentingToolStripMenuItem.Click += new System.EventHandler(this.payRentingToolStripMenuItem_Click);
+            // 
+            // addChangeRentingPriceToolStripMenuItem
+            // 
+            this.addChangeRentingPriceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.vehcileRentingToolStripMenuItem,
+            this.driverRentingToolStripMenuItem});
+            this.addChangeRentingPriceToolStripMenuItem.Font = new System.Drawing.Font("Teko SemiBold", 13F, System.Drawing.FontStyle.Bold);
+            this.addChangeRentingPriceToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addChangeRentingPriceToolStripMenuItem.Image")));
+            this.addChangeRentingPriceToolStripMenuItem.Name = "addChangeRentingPriceToolStripMenuItem";
+            this.addChangeRentingPriceToolStripMenuItem.Size = new System.Drawing.Size(383, 46);
+            this.addChangeRentingPriceToolStripMenuItem.Text = "Add/Change Renting Price";
+            // 
+            // vehcileRentingToolStripMenuItem
+            // 
+            this.vehcileRentingToolStripMenuItem.Name = "vehcileRentingToolStripMenuItem";
+            this.vehcileRentingToolStripMenuItem.Size = new System.Drawing.Size(338, 46);
+            this.vehcileRentingToolStripMenuItem.Text = "Change Vehcile Renting";
+            // 
+            // driverRentingToolStripMenuItem
+            // 
+            this.driverRentingToolStripMenuItem.Name = "driverRentingToolStripMenuItem";
+            this.driverRentingToolStripMenuItem.Size = new System.Drawing.Size(338, 46);
+            this.driverRentingToolStripMenuItem.Text = "Change Driver Renting";
+            // 
+            // vehcilesRentingPriceToolStripMenuItem
+            // 
+            this.vehcilesRentingPriceToolStripMenuItem.Font = new System.Drawing.Font("Teko SemiBold", 13F, System.Drawing.FontStyle.Bold);
+            this.vehcilesRentingPriceToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("vehcilesRentingPriceToolStripMenuItem.Image")));
+            this.vehcilesRentingPriceToolStripMenuItem.Name = "vehcilesRentingPriceToolStripMenuItem";
+            this.vehcilesRentingPriceToolStripMenuItem.Size = new System.Drawing.Size(383, 46);
+            this.vehcilesRentingPriceToolStripMenuItem.Text = "Vehciles Renting Price List";
+            // 
+            // staticRulesToolStripMenuItem
+            // 
+            this.staticRulesToolStripMenuItem.Font = new System.Drawing.Font("Teko SemiBold", 13F, System.Drawing.FontStyle.Bold);
+            this.staticRulesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("staticRulesToolStripMenuItem.Image")));
+            this.staticRulesToolStripMenuItem.Name = "staticRulesToolStripMenuItem";
+            this.staticRulesToolStripMenuItem.Size = new System.Drawing.Size(383, 46);
+            this.staticRulesToolStripMenuItem.Text = "Static Rules";
+            // 
+            // systemUserPaperToolStripMenuItem
+            // 
+            this.systemUserPaperToolStripMenuItem.Font = new System.Drawing.Font("Teko SemiBold", 13F, System.Drawing.FontStyle.Bold);
+            this.systemUserPaperToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("systemUserPaperToolStripMenuItem.Image")));
+            this.systemUserPaperToolStripMenuItem.Name = "systemUserPaperToolStripMenuItem";
+            this.systemUserPaperToolStripMenuItem.Size = new System.Drawing.Size(383, 46);
+            this.systemUserPaperToolStripMenuItem.Text = "System User Paper";
             // 
             // Form1
             // 
@@ -723,6 +826,16 @@
         private System.Windows.Forms.ToolStripMenuItem carsListToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem addCarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rentingListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem paymentsListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem makeNewPaymentsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem findPaymentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem payRentingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addChangeRentingPriceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vehcileRentingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem driverRentingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vehcilesRentingPriceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem staticRulesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem systemUserPaperToolStripMenuItem;
     }
 }
 

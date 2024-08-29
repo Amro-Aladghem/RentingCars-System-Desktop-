@@ -78,3 +78,10 @@ C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Ca
 C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Car_Project.RentingsVehicles.RentingInfo.resources
 C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Car_Project.RentingsVehicles.EditingRent.resources
 C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Car_Project.RentingsVehicles.EditingOnRenting.resources
+C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Car_Project.Payments.ctrMakeNewPayment.resources
+C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Car_Project.Payments.MakeNewPayment.resources
+C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Car_Project.Payments.ctrPaymentInfo.resources
+C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Car_Project.Payments.PaymentInfo.resources
+C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Car_Project.Payments.PaymentsList.resources
+C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Car_Project.Payments.ctrPaymentInfoWithFilter.resources
+C:\Users\Khaled\Desktop\Retain Cars\Retaining Car Project\obj\Debug\Retaining_Car_Project.Payments.FindPayment.resources

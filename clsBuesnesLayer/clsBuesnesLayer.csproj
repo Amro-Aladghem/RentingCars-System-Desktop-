@@ -54,6 +54,7 @@
     <Compile Include="clsUsers.cs" />
     <Compile Include="clsVehicles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemRules.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\clsDataAccessLayer\clsDataAccessLayer.csproj">

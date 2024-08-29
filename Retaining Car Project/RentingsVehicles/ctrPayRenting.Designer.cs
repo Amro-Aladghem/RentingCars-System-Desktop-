@@ -31,18 +31,20 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrPayRenting));
             this.gbRentID = new System.Windows.Forms.GroupBox();
+            this.btnSeacthRent = new System.Windows.Forms.Button();
+            this.txtRentID = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.gbCustomer = new System.Windows.Forms.GroupBox();
             this.btnSearchCustomer = new System.Windows.Forms.Button();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtFirstName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnSeacthRent = new System.Windows.Forms.Button();
-            this.txtRentID = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
             this.rdCustomer = new System.Windows.Forms.RadioButton();
             this.rdRentID = new System.Windows.Forms.RadioButton();
             this.gbReturnInfo = new System.Windows.Forms.GroupBox();
+            this.txtAdditionalFees = new System.Windows.Forms.TextBox();
+            this.lbLateFees = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.btnCalculate = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -70,11 +72,9 @@
             this.lbReturnMoney = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
+            this.ctrRentingInfo1 = new Retaining_Car_Project.RentingsVehicles.ctrRentingInfo();
             this.btnWithoutPay = new System.Windows.Forms.Button();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
-            this.lbLateFees = new System.Windows.Forms.LinkLabel();
-            this.ctrRentingInfo1 = new Retaining_Car_Project.RentingsVehicles.ctrRentingInfo();
-            this.txtAdditionalFees = new System.Windows.Forms.TextBox();
             this.gbRentID.SuspendLayout();
             this.gbCustomer.SuspendLayout();
             this.gbReturnInfo.SuspendLayout();
@@ -91,12 +91,46 @@
             this.gbRentID.Controls.Add(this.txtRentID);
             this.gbRentID.Controls.Add(this.label1);
             this.gbRentID.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.gbRentID.Location = new System.Drawing.Point(20, 32);
+            this.gbRentID.Location = new System.Drawing.Point(20, 31);
             this.gbRentID.Name = "gbRentID";
             this.gbRentID.Size = new System.Drawing.Size(998, 115);
             this.gbRentID.TabIndex = 0;
             this.gbRentID.TabStop = false;
             this.gbRentID.Text = "Search By Rent";
+            // 
+            // btnSeacthRent
+            // 
+            this.btnSeacthRent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnSeacthRent.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSeacthRent.BackgroundImage")));
+            this.btnSeacthRent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSeacthRent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSeacthRent.Location = new System.Drawing.Point(788, 29);
+            this.btnSeacthRent.Name = "btnSeacthRent";
+            this.btnSeacthRent.Size = new System.Drawing.Size(76, 66);
+            this.btnSeacthRent.TabIndex = 2;
+            this.btnSeacthRent.UseVisualStyleBackColor = false;
+            this.btnSeacthRent.Click += new System.EventHandler(this.btnSeacthRent_Click);
+            // 
+            // txtRentID
+            // 
+            this.txtRentID.BackColor = System.Drawing.Color.Silver;
+            this.txtRentID.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.txtRentID.Location = new System.Drawing.Point(287, 56);
+            this.txtRentID.Multiline = true;
+            this.txtRentID.Name = "txtRentID";
+            this.txtRentID.Size = new System.Drawing.Size(427, 39);
+            this.txtRentID.TabIndex = 1;
+            this.txtRentID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRentID_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(120, 56);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(161, 39);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Rent ID :";
             // 
             // gbCustomer
             // 
@@ -107,7 +141,7 @@
             this.gbCustomer.Controls.Add(this.label2);
             this.gbCustomer.Controls.Add(this.txtFirstName);
             this.gbCustomer.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.gbCustomer.Location = new System.Drawing.Point(11, 34);
+            this.gbCustomer.Location = new System.Drawing.Point(11, 33);
             this.gbCustomer.Name = "gbCustomer";
             this.gbCustomer.Size = new System.Drawing.Size(1009, 107);
             this.gbCustomer.TabIndex = 1;
@@ -149,6 +183,16 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "LastName:";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(43, 66);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(170, 34);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "FirstName:";
+            // 
             // txtFirstName
             // 
             this.txtFirstName.BackColor = System.Drawing.Color.Silver;
@@ -160,55 +204,11 @@
             this.txtFirstName.TabIndex = 3;
             this.txtFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFirstName_KeyPress);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(43, 66);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(170, 34);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "FirstName:";
-            // 
-            // btnSeacthRent
-            // 
-            this.btnSeacthRent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnSeacthRent.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSeacthRent.BackgroundImage")));
-            this.btnSeacthRent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSeacthRent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSeacthRent.Location = new System.Drawing.Point(788, 29);
-            this.btnSeacthRent.Name = "btnSeacthRent";
-            this.btnSeacthRent.Size = new System.Drawing.Size(76, 66);
-            this.btnSeacthRent.TabIndex = 2;
-            this.btnSeacthRent.UseVisualStyleBackColor = false;
-            this.btnSeacthRent.Click += new System.EventHandler(this.btnSeacthRent_Click);
-            // 
-            // txtRentID
-            // 
-            this.txtRentID.BackColor = System.Drawing.Color.Silver;
-            this.txtRentID.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-            this.txtRentID.Location = new System.Drawing.Point(287, 56);
-            this.txtRentID.Multiline = true;
-            this.txtRentID.Name = "txtRentID";
-            this.txtRentID.Size = new System.Drawing.Size(427, 39);
-            this.txtRentID.TabIndex = 1;
-            this.txtRentID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRentID_KeyPress);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(120, 56);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 39);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Rent ID :";
-            // 
             // rdCustomer
             // 
             this.rdCustomer.AutoSize = true;
             this.rdCustomer.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.rdCustomer.Location = new System.Drawing.Point(834, 3);
+            this.rdCustomer.Location = new System.Drawing.Point(834, 2);
             this.rdCustomer.Name = "rdCustomer";
             this.rdCustomer.Size = new System.Drawing.Size(179, 23);
             this.rdCustomer.TabIndex = 1;
@@ -221,7 +221,7 @@
             // 
             this.rdRentID.AutoSize = true;
             this.rdRentID.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.rdRentID.Location = new System.Drawing.Point(665, 4);
+            this.rdRentID.Location = new System.Drawing.Point(665, 3);
             this.rdRentID.Name = "rdRentID";
             this.rdRentID.Size = new System.Drawing.Size(117, 23);
             this.rdRentID.TabIndex = 2;
@@ -254,6 +254,30 @@
             this.gbReturnInfo.TabIndex = 4;
             this.gbReturnInfo.TabStop = false;
             this.gbReturnInfo.Text = "Return Information";
+            // 
+            // txtAdditionalFees
+            // 
+            this.txtAdditionalFees.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtAdditionalFees.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.txtAdditionalFees.Location = new System.Drawing.Point(221, 173);
+            this.txtAdditionalFees.Name = "txtAdditionalFees";
+            this.txtAdditionalFees.Size = new System.Drawing.Size(252, 32);
+            this.txtAdditionalFees.TabIndex = 25;
+            this.txtAdditionalFees.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAdditionalFees_KeyPress);
+            // 
+            // lbLateFees
+            // 
+            this.lbLateFees.AutoSize = true;
+            this.lbLateFees.BackColor = System.Drawing.Color.Red;
+            this.lbLateFees.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lbLateFees.LinkColor = System.Drawing.Color.Yellow;
+            this.lbLateFees.Location = new System.Drawing.Point(417, 0);
+            this.lbLateFees.Name = "lbLateFees";
+            this.lbLateFees.Size = new System.Drawing.Size(167, 22);
+            this.lbLateFees.TabIndex = 24;
+            this.lbLateFees.TabStop = true;
+            this.lbLateFees.Text = "Late Fees Is Here";
+            this.lbLateFees.Visible = false;
             // 
             // linkLabel2
             // 
@@ -521,10 +545,18 @@
             // 
             this.panel3.AutoScroll = true;
             this.panel3.Controls.Add(this.ctrRentingInfo1);
-            this.panel3.Location = new System.Drawing.Point(20, 155);
+            this.panel3.Location = new System.Drawing.Point(20, 154);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1000, 349);
             this.panel3.TabIndex = 21;
+            // 
+            // ctrRentingInfo1
+            // 
+            this.ctrRentingInfo1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ctrRentingInfo1.Location = new System.Drawing.Point(0, -1);
+            this.ctrRentingInfo1.Name = "ctrRentingInfo1";
+            this.ctrRentingInfo1.Size = new System.Drawing.Size(983, 477);
+            this.ctrRentingInfo1.TabIndex = 0;
             // 
             // btnWithoutPay
             // 
@@ -548,38 +580,6 @@
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Text = "if Customer has Paid the Renting\r\nAnd dont want to Pay the Additional\r\nFees Now! " +
     "";
-            // 
-            // lbLateFees
-            // 
-            this.lbLateFees.AutoSize = true;
-            this.lbLateFees.BackColor = System.Drawing.Color.Red;
-            this.lbLateFees.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lbLateFees.LinkColor = System.Drawing.Color.Yellow;
-            this.lbLateFees.Location = new System.Drawing.Point(417, 0);
-            this.lbLateFees.Name = "lbLateFees";
-            this.lbLateFees.Size = new System.Drawing.Size(167, 22);
-            this.lbLateFees.TabIndex = 24;
-            this.lbLateFees.TabStop = true;
-            this.lbLateFees.Text = "Late Fees Is Here";
-            this.lbLateFees.Visible = false;
-            // 
-            // ctrRentingInfo1
-            // 
-            this.ctrRentingInfo1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ctrRentingInfo1.Location = new System.Drawing.Point(0, -1);
-            this.ctrRentingInfo1.Name = "ctrRentingInfo1";
-            this.ctrRentingInfo1.Size = new System.Drawing.Size(983, 477);
-            this.ctrRentingInfo1.TabIndex = 0;
-            // 
-            // txtAdditionalFees
-            // 
-            this.txtAdditionalFees.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtAdditionalFees.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.txtAdditionalFees.Location = new System.Drawing.Point(221, 173);
-            this.txtAdditionalFees.Name = "txtAdditionalFees";
-            this.txtAdditionalFees.Size = new System.Drawing.Size(252, 32);
-            this.txtAdditionalFees.TabIndex = 25;
-            this.txtAdditionalFees.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAdditionalFees_KeyPress);
             // 
             // ctrPayRenting
             // 
