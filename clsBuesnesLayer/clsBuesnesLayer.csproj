@@ -44,9 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsApplications.cs" />
     <Compile Include="clsCustomers.cs" />
     <Compile Include="clsDrivers.cs" />
     <Compile Include="clsEmployee.cs" />
+    <Compile Include="clsLateFees.cs" />
+    <Compile Include="clsManager.cs" />
     <Compile Include="clsPayment.cs" />
     <Compile Include="clsPersons.cs" />
     <Compile Include="clsRenting.cs" />
@@ -54,7 +57,7 @@
     <Compile Include="clsUsers.cs" />
     <Compile Include="clsVehicles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SystemRules.cs" />
+    <Compile Include="clsSystemRules.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\clsDataAccessLayer\clsDataAccessLayer.csproj">

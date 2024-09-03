@@ -259,7 +259,7 @@ namespace clsDataAccessLayer
                     string query = "Update SystemStaticRules \r\nset Discribtion =@Discription where ID=@ID";
 
 
-                    using (SqlCommand command=new SqlCommand())
+                    using (SqlCommand command=new SqlCommand(query,connection))
                     {
                         command.Parameters.AddWithValue("@ID", ID);
                         command.Parameters.AddWithValue("@Discription", Disciption);
@@ -291,7 +291,7 @@ namespace clsDataAccessLayer
                     connection.Open();
                     string query = "delete from  SystemStaticRules where Id=@ID";
 
-                    using(SqlCommand command=new SqlCommand())
+                    using(SqlCommand command=new SqlCommand(query,connection))
                     {
                         command.Parameters.AddWithValue("@ID", ID);
 

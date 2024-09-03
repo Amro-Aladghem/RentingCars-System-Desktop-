@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using clsDataAccessLayer;
+using System;
 using System.Data;
-using System.Data.SqlTypes;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using clsBuesnesLayer;
-using clsDataAccessLayer;
 
 namespace clsBuesnesLayer
 {
@@ -239,11 +229,25 @@ namespace clsBuesnesLayer
             return clsRentingData.MakeisPaidFalse(RentID);
         }
 
+        public static int GetNumberOfRentingThatMustBeEndToday()
+        {
+            return clsRentingData.GetNumberOfRentingThatBeEndToday();
+        }
+       
+        public static DataTable GetAllRentingThatMustbeEndToday()
+        {
+            return clsRentingData.GetAllRentingForToday();
+        }
 
+        public static DataTable GetAllRentingWithHisDate()
+        {
+            return clsRentingData.GetAllRentingWithDate();
+        }
 
-
-
-
+        public static DataTable GetPaymentDataGroupedByMonth()
+        {
+            return clsRentingData.GetPaymentDataGroupedByMonth();
+        }
 
 
 

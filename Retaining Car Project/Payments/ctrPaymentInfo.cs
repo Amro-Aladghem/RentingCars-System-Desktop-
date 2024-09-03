@@ -25,7 +25,7 @@ namespace Retaining_Car_Project.Payments
         {
             Payment = payment;
             _LoadData();
-            lbMoreInfoRent.Visible = true;
+            lbMoreInfoRent.Enabled = true;
         }
 
         private void _LoadData()
@@ -50,7 +50,7 @@ namespace Retaining_Car_Project.Payments
 
         private void lbMoreInfoRent_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            clsRenting Renting = clsRenting.FindRentingByID(Payment.RentID);
+            clsRenting Renting = clsRenting.FindRentingByIDNotActive(Payment.RentID);
             RentingInfo frm = new RentingInfo(Renting);
             frm.ShowDialog();
         }

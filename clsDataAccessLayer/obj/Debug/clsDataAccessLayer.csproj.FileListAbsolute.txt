@@ -16,3 +16,5 @@ C:\Users\Khaled\Desktop\Retain Cars\clsDataAccessLayer\obj\Debug\clsDataAccessLa
 C:\Users\Khaled\Desktop\Retain Cars\clsDataAccessLayer\obj\Debug\clsDataAccessLayer.csproj.CopyComplete
 C:\Users\Khaled\Desktop\Retain Cars\clsDataAccessLayer\obj\Debug\clsDataAccessLayer.dll
 C:\Users\Khaled\Desktop\Retain Cars\clsDataAccessLayer\obj\Debug\clsDataAccessLayer.pdb
+C:\Users\Khaled\Desktop\Retain Cars\clsDataAccessLayer\obj\Debug\clsDataAccessLayer.TestFrom.resources
+C:\Users\Khaled\Desktop\Retain Cars\clsDataAccessLayer\obj\Debug\clsDataAccessLayer.csproj.GenerateResource.cache

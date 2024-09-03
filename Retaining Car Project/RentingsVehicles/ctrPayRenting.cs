@@ -157,6 +157,7 @@ namespace Retaining_Car_Project.RentingsVehicles
             }
 
             TotalPrice = Renting.TotalPrice - Renting.TotalPaidPrice;
+            AdditionalFees = 0;
 
             DistanceCovered = Convert.ToDecimal(txtFinalMileage.Text) - Renting.InitialMileage;
             lbDistanseCoverd.Text = DistanceCovered.ToString();
@@ -184,6 +185,11 @@ namespace Retaining_Car_Project.RentingsVehicles
 
                 lbReturnMoney.Text = TotalReturnMoney.ToString();
                 AdditionalFees += FeesOfExceeds;
+            }
+            else
+            {
+                lbTotalPrice.Text = TotalPrice.ToString();
+                lbReturnMoney.Text = TotalReturnMoney.ToString();
             }
 
             flagFinishCalculate = true;
@@ -262,6 +268,7 @@ namespace Retaining_Car_Project.RentingsVehicles
 
             TotalPrice -= Renting.TotalPrice;
             lbTotalPrice.Text = TotalPrice.ToString();
+            btnFinish.Enabled = false;
 
         }
 
@@ -300,8 +307,21 @@ namespace Retaining_Car_Project.RentingsVehicles
 
         private void btnFinish_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Are You Sure to Finish?","Question",MessageBoxButtons.OKCancel,MessageBoxIcon.Question)==DialogResult.Cancel)
+            if (flagFinishCalculate == false)
             {
+                MessageBox.Show("You must calculate before Payment!");
+                return;
+            }
+
+
+            if (MessageBox.Show("Are You Sure to Finish?","Question",MessageBoxButtons.OKCancel,MessageBoxIcon.Question)==DialogResult.Cancel)
+            {
+                return;
+            }
+
+            if(Renting.IsActive==false && Renting.IsPaid)
+            {
+                MessageBox.Show("This Renting already Finished , You Can close this windows!");
                 return;
             }
 

@@ -49,7 +49,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddNewRenting";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddNewRenting";
             this.ResumeLayout(false);
 

@@ -162,6 +162,16 @@ namespace clsBuesnesLayer
 
         }
 
+        public static decimal GetDriverFees()
+        {
+            return clsDriversData.GetDriverFees();
+        }
+
+        public static bool UpdateDriverFees(decimal Fees)
+        {
+            return clsDriversData.UpdateDriverFees( Fees);
+        }
+
 
 
     }

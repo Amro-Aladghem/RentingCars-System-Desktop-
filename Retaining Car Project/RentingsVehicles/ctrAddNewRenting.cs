@@ -162,13 +162,18 @@ namespace Retaining_Car_Project.RentingsVehicles
                 MessageBox.Show("It will be available in " + ReturnDateForTheCar.ToString());
                 return;
             }
-            else
+      
+            Vehicle = clsVehicles.FindVehicleByCarTypeAndModelName(cbxCarType.Text, cbxCarModel.Text);
+           
+
+            if(Vehicle==null)
             {
-                lbHeadOfCar.Visible = false;
-                Vehicle = clsVehicles.FindVehicleByCarTypeAndModelName(cbxCarType.Text, cbxCarModel.Text);
-                lbCarInfo.Visible = true;
+                MessageBox.Show("This Car does not belong to any vehicle , You must Add this Car to Vehicle!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
+            lbHeadOfCar.Visible = false;
+            lbCarInfo.Visible = true;
             PricePerDay = clsVehicles.GetPriceForRentingVehciel(Vehicle.VehicleID);
             numaricNumberOfDays_ValueChanged(null, null);
 

@@ -412,6 +412,67 @@ namespace clsDataAccessLayer
         }
         
 
+        public static decimal GetDriverFees()
+        {
+            decimal Fees = 0;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+                    string query = "select  DriverFees from DriverFees";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        object reader = command.ExecuteScalar();
+                        if (reader != null && decimal.TryParse(reader.ToString(), out decimal value))
+                        {
+                            Fees = value;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                //
+            }
+
+            return Fees;
+        }
+
+        public static bool UpdateDriverFees(decimal DriverFees)
+        {
+            bool isDone = false;
+
+            try
+            {
+
+                using(SqlConnection connection=new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+                    string query = "Update DriverFees \r\nset DriverFees=@DriverFees";
+
+                    using(SqlCommand command =new SqlCommand(query,connection))
+                    {
+                        command.Parameters.AddWithValue("@DriverFees", DriverFees);
+
+                        int rowaffected = command.ExecuteNonQuery();
+                        if(rowaffected>0)
+                        {
+                            isDone = true;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                //
+            }
+
+            return isDone;
+        }
+
 
 
 

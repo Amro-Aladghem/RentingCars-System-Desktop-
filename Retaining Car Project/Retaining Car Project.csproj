@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\ApplicationsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\ApplicationsList.Designer.cs">
+      <DependentUpon>ApplicationsList.cs</DependentUpon>
+    </Compile>
     <Compile Include="ctrTest.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -148,13 +155,31 @@
     <Compile Include="Employees\FindEmployee.Designer.cs">
       <DependentUpon>FindEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginSystem\clsLogedInUser.cs" />
+    <Compile Include="LateFees\AddLateFeesForRenting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LateFees\AddLateFeesForRenting.Designer.cs">
+      <DependentUpon>AddLateFeesForRenting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LateFees\LateFeesList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LateFees\LateFeesList.Designer.cs">
+      <DependentUpon>LateFeesList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LateFees\UpdateDaysofdelay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LateFees\UpdateDaysofdelay.Designer.cs">
+      <DependentUpon>UpdateDaysofdelay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginSystem\clsGlobal.cs" />
     <Compile Include="LoginSystem\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +187,48 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginSystem\LoginRegistry.cs" />
+    <Compile Include="Managment\AddNewManger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managment\AddNewManger.Designer.cs">
+      <DependentUpon>AddNewManger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managment\ManagerList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managment\ManagerList.Designer.cs">
+      <DependentUpon>ManagerList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managment\RentingMonthlyRebort.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managment\RentingMonthlyRebort.Designer.cs">
+      <DependentUpon>RentingMonthlyRebort.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managment\RentingYearlyReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managment\RentingYearlyReport.Designer.cs">
+      <DependentUpon>RentingYearlyReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managment\SchedulingHistoryList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managment\SchedulingHistoryList.Designer.cs">
+      <DependentUpon>SchedulingHistoryList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managment\UpdateSection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managment\UpdateSection.Designer.cs">
+      <DependentUpon>UpdateSection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Notifications\NotificationsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notifications\NotificationsList.Designer.cs">
+      <DependentUpon>NotificationsList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Payments\ctrMakeNewPayment.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -326,6 +393,42 @@
     <Compile Include="SystemCustomer\UpdateAddCustomers.Designer.cs">
       <DependentUpon>UpdateAddCustomers.cs</DependentUpon>
     </Compile>
+    <Compile Include="SystemRules\AddUpdateStaticRules.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemRules\AddUpdateStaticRules.Designer.cs">
+      <DependentUpon>AddUpdateStaticRules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemRules\AddVehcilePrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemRules\AddVehcilePrice.Designer.cs">
+      <DependentUpon>AddVehcilePrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemRules\ChangeDriverFees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemRules\ChangeDriverFees.Designer.cs">
+      <DependentUpon>ChangeDriverFees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemRules\StaticReulesList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemRules\StaticReulesList.Designer.cs">
+      <DependentUpon>StaticReulesList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemRules\UpdateVehiclePrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemRules\UpdateVehiclePrice.Designer.cs">
+      <DependentUpon>UpdateVehiclePrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemRules\VehiclesRentPricesList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemRules\VehiclesRentPricesList.Designer.cs">
+      <DependentUpon>VehiclesRentPricesList.cs</DependentUpon>
+    </Compile>
     <Compile Include="TestForm2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -476,6 +579,9 @@
     <Compile Include="Vehciles\VehicleInfo.Designer.cs">
       <DependentUpon>VehicleInfo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Applications\ApplicationsList.resx">
+      <DependentUpon>ApplicationsList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ctrTest.resx">
       <DependentUpon>ctrTest.cs</DependentUpon>
     </EmbeddedResource>
@@ -527,11 +633,41 @@
     <EmbeddedResource Include="Employees\FindEmployee.resx">
       <DependentUpon>FindEmployee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LateFees\AddLateFeesForRenting.resx">
+      <DependentUpon>AddLateFeesForRenting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LateFees\LateFeesList.resx">
+      <DependentUpon>LateFeesList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LateFees\UpdateDaysofdelay.resx">
+      <DependentUpon>UpdateDaysofdelay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginSystem\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managment\AddNewManger.resx">
+      <DependentUpon>AddNewManger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managment\ManagerList.resx">
+      <DependentUpon>ManagerList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managment\RentingMonthlyRebort.resx">
+      <DependentUpon>RentingMonthlyRebort.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managment\RentingYearlyReport.resx">
+      <DependentUpon>RentingYearlyReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managment\SchedulingHistoryList.resx">
+      <DependentUpon>SchedulingHistoryList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managment\UpdateSection.resx">
+      <DependentUpon>UpdateSection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notifications\NotificationsList.resx">
+      <DependentUpon>NotificationsList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Payments\ctrMakeNewPayment.resx">
       <DependentUpon>ctrMakeNewPayment.cs</DependentUpon>
@@ -624,6 +760,24 @@
     <EmbeddedResource Include="SystemCustomer\UpdateAddCustomers.resx">
       <DependentUpon>UpdateAddCustomers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SystemRules\AddUpdateStaticRules.resx">
+      <DependentUpon>AddUpdateStaticRules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemRules\AddVehcilePrice.resx">
+      <DependentUpon>AddVehcilePrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemRules\ChangeDriverFees.resx">
+      <DependentUpon>ChangeDriverFees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemRules\StaticReulesList.resx">
+      <DependentUpon>StaticReulesList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemRules\UpdateVehiclePrice.resx">
+      <DependentUpon>UpdateVehiclePrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemRules\VehiclesRentPricesList.resx">
+      <DependentUpon>VehiclesRentPricesList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TestForm2.resx">
       <DependentUpon>TestForm2.cs</DependentUpon>
     </EmbeddedResource>
@@ -712,9 +866,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="SystemRules\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\clsBuesnesLayer\clsBuesnesLayer.csproj">
       <Project>{64fcb12a-04b7-48bb-a559-6e6b2118372b}</Project>

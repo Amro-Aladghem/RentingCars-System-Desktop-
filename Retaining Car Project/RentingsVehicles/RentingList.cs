@@ -73,19 +73,19 @@ namespace Retaining_Car_Project.RentingsVehicles
                 cbxActive.SelectedIndex = 0;
                 cbxActive.Visible = false;
             }
-            else if (cbxFilter.SelectedIndex != 5 || cbxFilter.SelectedIndex != 4)
+            else if (cbxFilter.SelectedIndex == 5 ^ cbxFilter.SelectedIndex == 4)
             {
-                txtFilter.Visible = true;
-                cbxActive.Visible = false;
-                cbxActive.SelectedIndex = 0;
-            }
-            else
-            {
+
                 txtFilter.Visible = false;
                 txtFilter.Clear();
                 cbxActive.Visible = true;
                 cbxActive.SelectedIndex = 0;
-
+            }
+            else
+            {
+                txtFilter.Visible = true;
+                cbxActive.Visible = false;
+                cbxActive.SelectedIndex = 0;
             }
         }
 
@@ -119,13 +119,13 @@ namespace Retaining_Car_Project.RentingsVehicles
             if (cbxActive.SelectedIndex == 1)
             {
                 filterValue = "1";
-                (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", filterColumn, filterValue);
+                (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("{0}={1}", filterColumn, filterValue);
                 lbRecord.Text = dataGridView1.RowCount.ToString();
             }
             else if(cbxActive.SelectedIndex==2)
             {
                 filterValue = "0";
-                (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", filterColumn, filterValue);
+                (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("{0}={1}", filterColumn, filterValue);
                 lbRecord.Text = dataGridView1.RowCount.ToString();
             }
             else
@@ -162,7 +162,17 @@ namespace Retaining_Car_Project.RentingsVehicles
 
         private void showRentingInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clsRenting Renting = clsRenting.FindRentingByID((int)dataGridView1.CurrentRow.Cells[0].Value);
+            clsRenting Renting;
+            if ((bool)dataGridView1.CurrentRow.Cells[11].Value)
+            {
+                Renting = clsRenting.FindRentingByID((int)dataGridView1.CurrentRow.Cells[0].Value);
+            }
+            else
+            {
+                Renting = clsRenting.FindRentingByIDNotActive((int)dataGridView1.CurrentRow.Cells[0].Value);
+
+            }
+
             RentingInfo frm = new RentingInfo(Renting);
             frm.ShowDialog();
 

@@ -3174,7 +3174,7 @@
   <data name="changeActiveStatusToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
-        0wAADdMBvdUcagAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAFs9SURBVHhe7d0H
+        0gAADdIBb5L+jgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAFs9SURBVHhe7d0H
         mFTV+Qbw2QV26WKwoKIRsaFRsWNUei+7y9JUdEVFoyb2LtaoiL1gly5NerOggliwRkKif1usscUYRVQ6
         7Pl/Z3cHZu68s9Pu3HvOve95nt8T8wG7szN3zvvuzJ2ZiFKKiAwXqVjRQLQUh4jOYpA4W4wQd4uJYpZY
         KBaLZeJ18Y54T/xLfCn+I1aJNWJzDf3feqb/TP8d/Xf1v9H/Vn8N/bX019RfW38P/b3099TfW18GfVn0
@@ -3570,7 +3570,7 @@
   <data name="vehicleInfoToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAFr8SURBVHhe7d0H
+        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAFr8SURBVHhe7d0H
         mBXV3Qbw2b4su+wusCwdls7Se0eqiCiigIgoIAJ2sQKCFBUsKCqKCEjHgmLvBZWoiZrYEk2xxajRqEk0
         3eSLcr7/2fsQd+Fld87cM3Pn3nnf5/k93/flC3f2zjkz53+nnOMwTITSQIwUZ4gbxZPidfGh+FL8Uygi
         ojh9LT4VvxaviF3iMjFV9BTZgmEYH1MsjhU3i3cEOlCJiIKmf2w8JRaKviJdMAwTZzLEKHGP+I9ABx8R

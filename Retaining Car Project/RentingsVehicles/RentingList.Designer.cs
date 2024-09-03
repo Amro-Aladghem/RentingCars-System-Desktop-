@@ -74,7 +74,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1539, 102);
+            this.panel1.Size = new System.Drawing.Size(1709, 102);
             this.panel1.TabIndex = 0;
             // 
             // cbxActive
@@ -84,7 +84,7 @@
             "All",
             "Yes",
             "No"});
-            this.cbxActive.Location = new System.Drawing.Point(1216, 44);
+            this.cbxActive.Location = new System.Drawing.Point(1444, 37);
             this.cbxActive.Name = "cbxActive";
             this.cbxActive.Size = new System.Drawing.Size(127, 27);
             this.cbxActive.TabIndex = 11;
@@ -93,7 +93,7 @@
             // 
             // txtFilter
             // 
-            this.txtFilter.Location = new System.Drawing.Point(1216, 44);
+            this.txtFilter.Location = new System.Drawing.Point(1444, 37);
             this.txtFilter.Multiline = true;
             this.txtFilter.Name = "txtFilter";
             this.txtFilter.Size = new System.Drawing.Size(215, 27);
@@ -111,7 +111,7 @@
             "CustomerID",
             "isActive",
             "isPaid"});
-            this.cbxFilter.Location = new System.Drawing.Point(1030, 44);
+            this.cbxFilter.Location = new System.Drawing.Point(1258, 37);
             this.cbxFilter.Name = "cbxFilter";
             this.cbxFilter.Size = new System.Drawing.Size(180, 27);
             this.cbxFilter.TabIndex = 9;
@@ -122,7 +122,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(892, 37);
+            this.label4.Location = new System.Drawing.Point(1120, 30);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(141, 34);
             this.label4.TabIndex = 8;
@@ -180,7 +180,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(707, -3);
+            this.pictureBox1.Location = new System.Drawing.Point(783, -3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(142, 105);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -211,7 +211,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(1539, 495);
+            this.dataGridView1.Size = new System.Drawing.Size(1706, 641);
             this.dataGridView1.TabIndex = 1;
             // 
             // contextMenuStrip1
@@ -226,7 +226,7 @@
             this.changeActiveStatusToolStripMenuItem,
             this.vehicleInfoToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(304, 261);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(304, 228);
             // 
             // payRentingToolStripMenuItem
             // 
@@ -288,7 +288,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 600);
+            this.label2.Location = new System.Drawing.Point(-2, 749);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(161, 34);
             this.label2.TabIndex = 2;
@@ -298,7 +298,7 @@
             // 
             this.lbRecord.AutoSize = true;
             this.lbRecord.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRecord.Location = new System.Drawing.Point(170, 600);
+            this.lbRecord.Location = new System.Drawing.Point(156, 749);
             this.lbRecord.Name = "lbRecord";
             this.lbRecord.Size = new System.Drawing.Size(33, 34);
             this.lbRecord.TabIndex = 3;
@@ -309,7 +309,7 @@
             this.btnClose.BackColor = System.Drawing.Color.White;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(1370, 603);
+            this.btnClose.Location = new System.Drawing.Point(1525, 749);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(169, 55);
             this.btnClose.TabIndex = 4;
@@ -323,7 +323,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1539, 664);
+            this.ClientSize = new System.Drawing.Size(1706, 808);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lbRecord);
             this.Controls.Add(this.label2);

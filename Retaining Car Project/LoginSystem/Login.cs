@@ -54,9 +54,10 @@ namespace LoginSystem
                 MessageBox.Show("You are not Active Now, Please Call Admin to activate you!");
             }
 
-            clsLogedInUser.SetValueToUser(User);
+            clsGlobal.SetValueToUser(User);
 
-            Form1 frm = new Form1(this);
+
+            MainForm frm = new MainForm(this);
             this.Hide();
             frm.ShowDialog();
 

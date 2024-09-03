@@ -542,6 +542,135 @@ namespace clsDataAccessLayer
             return isDone;
         }
 
+        public static DataTable GetAllRentingForToday()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+
+                using(SqlConnection connection=new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using(SqlCommand command =new SqlCommand("SP_GetAllRentingsThatMustBeReturnNow",connection))
+                    {
+                        using(SqlDataReader reader=command.ExecuteReader())
+                        {
+                            if(reader.HasRows)
+                            {
+                                dt.Load(reader);
+                            }
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                //
+            }
+
+            return dt;
+        }
+
+        public static int GetNumberOfRentingThatBeEndToday()
+        {
+            int Number = 0;
+
+            try
+            {
+
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+                    string query = "select dbo.GetNumberOfRentingMustbeEndedInToday()";
+
+                    using(SqlCommand command=new SqlCommand(query,connection))
+                    {
+                        object reader = command.ExecuteScalar();
+                        if(reader!=null && int.TryParse(reader.ToString(),out int Value))
+                        {
+                            Number = Value;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                //
+            }
+
+            return Number;
+        }
+
+
+
+        public static DataTable GetAllRentingWithDate()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    SqlDataAdapter da = new SqlDataAdapter("Exec SP_GetAllRentingWithHisDate", conn);
+                    da.Fill(dt);
+
+                }
+
+            }
+            catch
+            {
+                //
+            }
+
+            return dt;
+
+        }
+
+
+        public static DataTable GetPaymentDataGroupedByMonth()
+        {
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+                    
+                    using(SqlCommand command=new SqlCommand("SP_GetAllRentingGruopeByMonth",connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if(reader.HasRows)
+                            {
+                                dt.Load(reader);
+                            }
+
+
+                        }
+
+                    }
+                }
+            }
+            catch
+            {
+                //
+            }
+
+            return dt;
+
+
+
+
+        }
+
+
+
 
 
 

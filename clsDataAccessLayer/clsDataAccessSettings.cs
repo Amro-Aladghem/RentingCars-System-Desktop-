@@ -11,6 +11,6 @@ namespace clsDataAccessLayer
     public static class clsDataAccessSettings
     {
 
-        public static string ConnectionString = "Server=.;Database=RetainCarsProject;User Id=sa;Password=sa123456";
+        public static string ConnectionString = "Server=;Database=RetainCarsProject;User Id=;Password=";
     }
 }
