@@ -2,9 +2,41 @@
 
 A comprehensive desktop application for managing car rental operations, built with C# and SQL Server.
 
-## ⚠️ Known Issues
+## 💡 Idea
 
-- **clsBusiness class** has incorrect syntax and requires corrections
+This project is a desktop-based car rental management system designed to streamline rental operations. It provides a complete solution for managing vehicles, customers, reservations, and rental transactions with an intuitive user interface and robust database backend.
+
+## 🏗️ Project Structure
+
+```
+RentingCars-System-Desktop-/
+├── Database/
+│   └── RetainCarsProject.bak (Database backup file)
+├── Source Code/
+│   ├── clsBusiness/        (Business logic layer)
+│   ├── clsData/            (Data access layer)
+│   ├── Forms/              (User interface forms)
+│   └── Program.cs          (Application entry point)
+├── Properties/
+├── bin/                    (Compiled output)
+└── obj/                    (Intermediate build files)
+```
+
+## 📋 Overview
+
+The Renting Cars System consists of the following key components:
+
+- **Business Logic Layer**: Handles core rental operations and business rules
+- **Data Access Layer**: Manages database communication and queries
+- **User Interface**: Windows Forms-based interface for easy interaction
+- **Database**: SQL Server backend for persistent data storage
+
+Key Features:
+- Vehicle inventory management
+- Customer profile management
+- Reservation and booking system
+- Rental tracking and payment processing
+- Comprehensive reporting capabilities
 
 ## 📋 Setup Instructions
 
